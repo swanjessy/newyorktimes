@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">NY Times</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="newyork_times">NewYork Times</string>
+    <string name="top_headlines">Headlines</string>
+    <string name="sections">Sections</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit egestas dui id ornare arcu odio. Integer enim neque volutpat ac tincidunt vitae semper quis lectus.</string>
+    <string name="lorem_ipsum_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</string>
+    <string name="trending">trending</string>
+    <string name="movie_critics_review">movie critics review</string>
+    <string name="_3_hours_ago">3 hours ago</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_12th_feb_2017">12th Feb 2017</string>
+    <string name="click_to_know_more">Click to know more</string>
+    <string name="title_movie_review">Movie Review</string>
+    <string name="title_newyork_times">NewYork Times</string>
+    <string name="title_trending_stories">Trending Stories</string>
+    <string name="title_article_detail">Article Details</string>
+    <string name="you_haven_t_saved_any_article">You haven\'t saved any article :(</string>
+    <string name="title_saved_articles">Saved Articles</string>
+
+</resources>

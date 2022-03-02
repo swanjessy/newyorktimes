@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/headlines">
+
+    <fragment
+        android:id="@+id/headlines"
+        android:name="com.example.nytimes.presentation.ui.features.headlines.HeadLinesFragment"
+        android:label="@string/top_headlines"
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_headlines_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+        <action
+            android:id="@+id/action_headlines_to_movieInfoFragment"
+            app:destination="@id/movieInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sections"
+        android:name="com.example.nytimes.presentation.ui.features.sections.SectionFragment"
+        android:label="@string/sections"
+        tools:layout="@layout/fragment_sections" >
+        <action
+            android:id="@+id/action_sections_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.example.nytimes.presentation.ui.features.details.ArticleDetailsFragment"
+        android:label="Article Details"
+        tools:layout="@layout/fragment_article_details">
+        <argument
+            android:name="article"
+            app:argType="com.example.nytimes.data.model.topstories.Article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieInfoFragment"
+        android:name="com.example.nytimes.presentation.ui.features.movies.MovieInfoFragment"
+        android:label="fragment_movie_info"
+        tools:layout="@layout/fragment_movie_info">
+        <argument
+            android:name="movie"
+            app:argType="com.example.nytimes.data.model.moviesreview.Result" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveFragment"
+        android:name="com.example.nytimes.presentation.ui.features.saved.SaveFragment"
+        android:label="SaveFragment"
+        tools:layout="@layout/fragment_save">
+        <action
+            android:id="@+id/action_saveFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </fragment>
+
+</navigation>

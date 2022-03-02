@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nytimes.presentation.ui.features.MainActivity">
+
+    <item
+        android:id="@+id/headlines"
+        android:icon="@drawable/ic_news"
+        android:title="@string/top_headlines" />
+
+    <item
+        android:id="@+id/sections"
+        android:icon="@drawable/ic_menu_category"
+        android:title="@string/sections" />
+</menu>

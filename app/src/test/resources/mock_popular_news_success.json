@@ -1,0 +1,873 @@
+{
+  "copyright": "Copyright (c) 2022 The New York Times Company.  All Rights Reserved.",
+  "num_results": 20,
+  "results": [
+    {
+      "abstract": "When the Russian leader ordered his nuclear forces into “special combat readiness,” the U.S. could have gone on high alert. Instead, the administration tried not to inflame him.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Nuclear Weapons;Arms Control and Limitation and Disarmament;United States Defense and Military Forces;United States International Relations;Biden, Joseph R Jr;Putin, Vladimir V;Russia;Ukraine;United States",
+      "asset_id": 100000008230516,
+      "byline": "By David E. Sanger and William J. Broad",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Nuclear Weapons",
+        "Arms Control and Limitation and Disarmament",
+        "United States Defense and Military Forces",
+        "United States International Relations"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Russia",
+        "Ukraine",
+        "United States"
+      ],
+      "id": 100000008230516,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Svetlana Akimova, 82, sheltered in a parking garage in Kyiv on Saturday as heavy fighting took place outside her apartment building.",
+          "copyright": " Lynsey Addario for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "u.s.",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+        "Biden, Joseph R Jr",
+        "Putin, Vladimir V"
+      ],
+      "published_date": "2022-02-27",
+      "section": "U.S.",
+      "source": "New York Times",
+      "subsection": "Politics",
+      "title": "Putin Declares a Nuclear Alert, and Biden Seeks De-escalation",
+      "type": "Article",
+      "updated": "2022-02-28 00:31:05",
+      "uri": "nyt://article/2d1d4ff6-0213-5193-89ea-f89ca171ffcc",
+      "url": "https://www.nytimes.com/2022/02/27/us/politics/putin-nuclear-alert-biden-deescalation.html"
+    },
+    {
+      "abstract": "The decision came amid mounting public anger at Russia’s invasion of Ukraine.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Embargoes and Sanctions;Switzerland",
+      "asset_id": 100000008231390,
+      "byline": "By Nick Cumming-Bruce",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Embargoes and Sanctions"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Switzerland"
+      ],
+      "id": 100000008231390,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "President Ignazio Cassis of Switzerland addressing a session of the United Nations Human Rights Council, in Geneva, on Monday.",
+          "copyright": "Pool photo by Fabrice Coffrini",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "Switzerland says it will freeze Russian assets, setting aside a tradition of neutrality.",
+      "type": "Article",
+      "updated": "2022-02-28 10:26:53",
+      "uri": "nyt://article/bfb0c0cc-8b85-505c-a8ba-c13829dc52c3",
+      "url": "https://www.nytimes.com/2022/02/28/world/europe/switzerland-russian-assets-freeze.html"
+    },
+    {
+      "abstract": "While protection against hospitalization is still strong, the vaccine offered almost no protection against infection, even just a month after full vaccination.",
+      "adx_keywords": "Children and Childhood;Vaccination and Immunization;Coronavirus (2019-nCoV);your-feed-science;your-feed-healthcare;Pfizer Inc;BioNTech SE",
+      "asset_id": 100000008229865,
+      "byline": "By Apoorva Mandavilli and Noah Weiland",
+      "des_facet": [
+        "Children and Childhood",
+        "Vaccination and Immunization",
+        "Coronavirus (2019-nCoV)",
+        "your-feed-science",
+        "your-feed-healthcare"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008229865,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "A 10-year-old receiving the Pfizer-BioNTech Covid-19 vaccine at Hartford Hospital in Hartford, Conn.",
+          "copyright": "Joseph Prezioso/Agence France-Presse — Getty Images",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "health",
+      "org_facet": [
+        "Pfizer Inc",
+        "BioNTech SE"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Health",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "Pfizer Shot Is Far Less Effective in 5- to 11-Year-Olds Than in Older Kids, New Data Show",
+      "type": "Article",
+      "updated": "2022-02-28 23:35:13",
+      "uri": "nyt://article/de497cc2-309f-5777-9938-420ab9a74329",
+      "url": "https://www.nytimes.com/2022/02/28/health/pfizer-vaccine-kids.html"
+    },
+    {
+      "abstract": "After days of miscalculation about Ukraine’s resolve to fight, Russian forces are turning toward an old pattern of opening fire on cities and mounting sieges.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Civilian Casualties;Ruble (Currency);Embargoes and Sanctions;Defense and Military Forces;Putin, Vladimir V;Zelensky, Volodymyr;Ukraine",
+      "asset_id": 100000008231903,
+      "byline": "By Steven Erlanger",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Civilian Casualties",
+        "Ruble (Currency)",
+        "Embargoes and Sanctions",
+        "Defense and Military Forces"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Ukraine"
+      ],
+      "id": 100000008231903,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Ukrainian soldiers with a disabled Russian troop carrier on Friday outside Ukraine’s second-largest city, Kharkiv.",
+          "copyright": "Tyler Hicks/The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+        "Putin, Vladimir V",
+        "Zelensky, Volodymyr"
+      ],
+      "published_date": "2022-02-28",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "After a Fumbled Start, Russian Forces Hit Harder in Ukraine",
+      "type": "Article",
+      "updated": "2022-02-28 23:54:54",
+      "uri": "nyt://article/280288c3-798e-5d91-b931-c2130b56bc33",
+      "url": "https://www.nytimes.com/2022/02/28/world/europe/russia-ukraine-military.html"
+    },
+    {
+      "abstract": "The hectic moves were the first signs that Western sanctions were shaking the foundations of Russia’s economy.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Ruble (Currency);Currency;Banking and Financial Institutions;Central Bank of Russia;Russia",
+      "asset_id": 100000008231261,
+      "byline": "By Anton Troianovski",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Ruble (Currency)",
+        "Currency",
+        "Banking and Financial Institutions"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Russia"
+      ],
+      "id": 100000008231261,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "People outside a currency exchange shop in Moscow on Saturday.",
+          "copyright": "Sergey Ponomarev for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+        "Central Bank of Russia"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "The ruble crashes, the stock market closes and Russia’s economy staggers under sanctions.",
+      "type": "Article",
+      "updated": "2022-02-28 09:21:50",
+      "uri": "nyt://article/fd62c363-dc1c-5fa8-a9d0-47b0866f7de6",
+      "url": "https://www.nytimes.com/2022/02/27/world/europe/ruble-russia-stock-market.html"
+    },
+    {
+      "abstract": "As the world overwhelmingly condemns the assault on Ukraine, online opinion in China is mostly pro-Russia, pro-war and pro-Putin.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Social Media;Diplomatic Service, Embassies and Consulates;Putin, Vladimir V;Xi Jinping;Russia;Ukraine;China",
+      "asset_id": 100000008227595,
+      "byline": "By Li Yuan",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Social Media",
+        "Diplomatic Service, Embassies and Consulates"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Russia",
+        "Ukraine",
+        "China"
+      ],
+      "id": 100000008227595,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "A bombed Ukrainian home in south Kyiv. Many Chinese social media users have praised President Vladimir V. Putin of Russia and accepted his justification for invading Ukraine.",
+          "copyright": "Lynsey Addario for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "business",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+        "Putin, Vladimir V",
+        "Xi Jinping"
+      ],
+      "published_date": "2022-02-27",
+      "section": "Business",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "Why the Chinese Internet Is Cheering Russia’s Invasion",
+      "type": "Article",
+      "updated": "2022-02-28 14:08:50",
+      "uri": "nyt://article/90dfaa7a-d362-58d9-b768-2de2ff6550d8",
+      "url": "https://www.nytimes.com/2022/02/27/business/china-russia-ukraine-invasion.html"
+    },
+    {
+      "abstract": "Countries aren’t doing nearly enough to protect against the disasters to come as the planet keeps heating up, a major new scientific report concludes.",
+      "adx_keywords": "Global Warming;Greenhouse Gas Emissions;Disasters and Emergencies;Endangered and Extinct Species;Floods;Heat and Heat Waves;Agriculture and Farming;Wildfires;Intergovernmental Panel on Climate Change;United Nations",
+      "asset_id": 100000008214814,
+      "byline": "By Brad Plumer and Raymond Zhong",
+      "des_facet": [
+        "Global Warming",
+        "Greenhouse Gas Emissions",
+        "Disasters and Emergencies",
+        "Endangered and Extinct Species",
+        "Floods",
+        "Heat and Heat Waves",
+        "Agriculture and Farming",
+        "Wildfires"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008214814,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "A seawall construction in low-lying metropolitan Manila, Philippines. Many developing countries lack the resources to prepare for the more serious climate-related threats still to come.",
+          "copyright": "Chang W. Lee/The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "climate",
+      "org_facet": [
+        "Intergovernmental Panel on Climate Change",
+        "United Nations"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Climate",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "Climate Change Is Harming the Planet Faster Than We Can Adapt, U.N. Warns",
+      "type": "Article",
+      "updated": "2022-02-28 10:15:45",
+      "uri": "nyt://article/7ea1a314-5dd9-53fb-a075-c966542135ce",
+      "url": "https://www.nytimes.com/2022/02/28/climate/climate-change-ipcc-report.html"
+    },
+    {
+      "abstract": "After years of talks about the need for public-private partnerships to combat cyberattacks, the war in Ukraine is stress-testing the system.",
+      "adx_keywords": "Russian Invasion of Ukraine (2022);Cyberwarfare and Defense;Neuberger, Anne;Facebook Inc;Meta Platforms Inc;Microsoft Corp;Twitter;YouTube.com;United States Cyber Command;National Security Agency;Belarus;Russia;Ukraine",
+      "asset_id": 100000008232548,
+      "byline": "By David E. Sanger, Julian E. Barnes and Kate Conger",
+      "des_facet": [
+        "Russian Invasion of Ukraine (2022)",
+        "Cyberwarfare and Defense"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Belarus",
+        "Russia",
+        "Ukraine"
+      ],
+      "id": 100000008232548,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Ukrainians gather in a train station in Kyiv in an effort to leave the city shortly after the Russian invasion began.",
+          "copyright": "Lynsey Addario for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "u.s.",
+      "org_facet": [
+        "Facebook Inc",
+        "Meta Platforms Inc",
+        "Microsoft Corp",
+        "Twitter",
+        "YouTube.com",
+        "United States Cyber Command",
+        "National Security Agency"
+      ],
+      "per_facet": [
+        "Neuberger, Anne"
+      ],
+      "published_date": "2022-02-28",
+      "section": "U.S.",
+      "source": "New York Times",
+      "subsection": "Politics",
+      "title": "As Tanks Rolled Into Ukraine, So Did Malware. Then Microsoft Entered the War.",
+      "type": "Article",
+      "updated": "2022-02-28 23:19:24",
+      "uri": "nyt://article/d6839d8a-c128-5ceb-953d-6da3152ef9e7",
+      "url": "https://www.nytimes.com/2022/02/28/us/politics/ukraine-russia-microsoft.html"
+    },
+    {
+      "abstract": "",
+      "adx_keywords": "",
+      "asset_id": 100000008231291,
+      "byline": "By Matthew Mpoke Bigg",
+      "des_facet": [
+
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008231291,
+      "media": [
+
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "Zelensky, in a passionate speech, urges the E.U. to admit Ukraine immediately.",
+      "type": "Article",
+      "updated": "2022-02-28 11:15:28",
+      "uri": "nyt://article/2d05d6af-8d56-5304-b553-c1a559680fa4",
+      "url": "https://www.nytimes.com/2022/02/28/world/europe/ukraine-european-union-zelensky.html"
+    },
+    {
+      "abstract": "A newly revamped store in Washington shows how thoroughly Amazon has woven itself into the grocery shopping experience.",
+      "adx_keywords": "Shopping and Retail;Organic Foods and Products;Supermarkets and Grocery Stores;Mobile Commerce and Payments;Mobile Applications;Cameras;Sensors;Software;Computers and the Internet;Amazon.com Inc;Whole Foods Market Inc;Washington (DC)",
+      "asset_id": 100000008224432,
+      "byline": "By Cecilia Kang",
+      "des_facet": [
+        "Shopping and Retail",
+        "Organic Foods and Products",
+        "Supermarkets and Grocery Stores",
+        "Mobile Commerce and Payments",
+        "Mobile Applications",
+        "Cameras",
+        "Sensors",
+        "Software",
+        "Computers and the Internet"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Washington (DC)"
+      ],
+      "id": 100000008224432,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "The Glover Park location is the first of two prototype Whole Foods stores with Amazon’s Just Walk Out technology.",
+          "copyright": "Ting Shen for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "technology",
+      "org_facet": [
+        "Amazon.com Inc",
+        "Whole Foods Market Inc"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Technology",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "Here Comes the Full Amazonification of Whole Foods",
+      "type": "Article",
+      "updated": "2022-02-28 16:25:14",
+      "uri": "nyt://article/7f5755c9-5535-506a-a427-46e168dc3e05",
+      "url": "https://www.nytimes.com/2022/02/28/technology/whole-foods-amazon-automation.html"
+    },
+    {
+      "abstract": "Feeling stuck on today’s puzzle? We can help.",
+      "adx_keywords": "",
+      "asset_id": 100000008228263,
+      "byline": "By Isaac Aronow and Doug Mennella",
+      "des_facet": [
+
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008228263,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "",
+          "copyright": " MATTHIAS HIEKEL/DPA/AFP via Getty Images",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "gameplay",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Gameplay",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "Spelling Bee Forum",
+      "type": "Article",
+      "updated": "2022-02-28 03:00:03",
+      "uri": "nyt://article/9a6efb8c-7ac0-5c3b-b6e2-26984c2d2e65",
+      "url": "https://www.nytimes.com/2022/02/28/crosswords/spelling-bee-forum.html"
+    },
+    {
+      "abstract": "The decision to bar Russian clubs and national teams came a day after FIFA was criticized for not going far enough to punish Russia for invading Ukraine.",
+      "adx_keywords": "Soccer;Russian Invasion of Ukraine (2022);World Cup 2022 (Soccer);International Federation of Association Football (FIFA);Union of European Football Assns (UEFA);International Olympic Committee",
+      "asset_id": 100000008231528,
+      "byline": "By Tariq Panja",
+      "des_facet": [
+        "Soccer",
+        "Russian Invasion of Ukraine (2022)",
+        "World Cup 2022 (Soccer)"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008231528,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Russia's national teams and Russian clubs are barred from all competitions.",
+          "copyright": "Antonio Bronic/Reuters",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "sports",
+      "org_facet": [
+        "International Federation of Association Football (FIFA)",
+        "Union of European Football Assns (UEFA)",
+        "International Olympic Committee"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Sports",
+      "source": "New York Times",
+      "subsection": "Soccer",
+      "title": "FIFA Suspends Russia, Ejecting It From World Cup Qualifying",
+      "type": "Article",
+      "updated": "2022-03-01 00:20:24",
+      "uri": "nyt://article/aed5b381-ea30-5997-abdd-c412f06a603f",
+      "url": "https://www.nytimes.com/2022/02/28/sports/soccer/fifa-russia-ban.html"
+    },
+    {
+      "abstract": "William P. Barr’s memoir of his time as attorney general under George H.W. Bush and then again under Donald J. Trump defends his more recent leadership of the Justice Department.",
+      "adx_keywords": "Presidential Election of 2020;Russian Interference in 2016 US Elections and Ties to Trump Associates;Trump-Ukraine Whistle-Blower Complaint and Impeachment Inquiry;Barr, William P;Mueller, Robert S III;Trump, Donald J;Flynn, Michael T;Justice Department",
+      "asset_id": 100000008230404,
+      "byline": "By Charlie Savage",
+      "des_facet": [
+        "Presidential Election of 2020",
+        "Russian Interference in 2016 US Elections and Ties to Trump Associates",
+        "Trump-Ukraine Whistle-Blower Complaint and Impeachment Inquiry"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008230404,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "In his memoir, former Attorney General William P. Barr urged Republicans to pick someone besides former President Donald J. Trump as the party’s nominee for the 2024 election.",
+          "copyright": "Anna Moneymaker for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "u.s.",
+      "org_facet": [
+        "Justice Department"
+      ],
+      "per_facet": [
+        "Barr, William P",
+        "Mueller, Robert S III",
+        "Trump, Donald J",
+        "Flynn, Michael T"
+      ],
+      "published_date": "2022-02-27",
+      "section": "U.S.",
+      "source": "New York Times",
+      "subsection": "Politics",
+      "title": "Barr Rebukes Trump as ‘Off the Rails’ in New Memoir",
+      "type": "Article",
+      "updated": "2022-02-28 13:22:52",
+      "uri": "nyt://article/77d681fd-2f8e-5879-a38d-8aaef6abec27",
+      "url": "https://www.nytimes.com/2022/02/27/us/politics/bill-barr-trump-january-6.html"
+    },
+    {
+      "abstract": "Heavy rain in the mountains of Oregon and Washington was expected to cause flooding, forecasters said.",
+      "adx_keywords": "Floods;Rain;Pacific Northwestern States (US);Washington (State);Oregon",
+      "asset_id": 100000008230656,
+      "byline": "By Alyssa Lukpat and Derrick Bryson Taylor",
+      "des_facet": [
+        "Floods",
+        "Rain"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Pacific Northwestern States (US)",
+        "Washington (State)",
+        "Oregon"
+      ],
+      "id": 100000008230656,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "An atmospheric river is forecast to bring heavy rains and flooding to the Pacific Northwest.",
+          "copyright": "Center for Western Weather and Water Extremes",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "u.s.",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-27",
+      "section": "U.S.",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "‘Atmospheric River’ Begins Soaking Pacific Northwest",
+      "type": "Article",
+      "updated": "2022-02-28 23:51:23",
+      "uri": "nyt://article/3d489d44-c62f-5d1b-8e62-cd3cb2ad888c",
+      "url": "https://www.nytimes.com/2022/02/27/us/atmospheric-river-pacific-northwest.html"
+    },
+    {
+      "abstract": "Robert F. Kennedy Jr. has risen to become a major figure in the vaccine resistance movement. Those close to him say it’s “heartbreaking.”",
+      "adx_keywords": "Vaccination and Immunization;Coronavirus (2019-nCoV);Rumors and Misinformation;Content Type: Personal Profile;Kennedy, Robert F Jr;Kennedy Family",
+      "asset_id": 100000008204202,
+      "byline": "By Adam Nagourney",
+      "des_facet": [
+        "Vaccination and Immunization",
+        "Coronavirus (2019-nCoV)",
+        "Rumors and Misinformation",
+        "Content Type: Personal Profile"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008204202,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Five of Robert F. Kennedy Jr.’s eight surviving siblings have publicly rebuked him over the past two years for his campaign against vaccines.",
+          "copyright": "Kenny Holston for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "u.s.",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+        "Kennedy, Robert F Jr",
+        "Kennedy Family"
+      ],
+      "published_date": "2022-02-26",
+      "section": "U.S.",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "A Kennedy’s Crusade Against Covid Vaccines Anguishes Family and Friends",
+      "type": "Article",
+      "updated": "2022-03-01 01:22:30",
+      "uri": "nyt://article/306ceedc-9e4e-5b2a-81f8-dc3a8d927492",
+      "url": "https://www.nytimes.com/2022/02/26/us/robert-kennedy-covid-vaccine.html"
+    },
+    {
+      "abstract": "Measures announced over the weekend aimed at restricting the Russian central bank’s ability to support the ruble appear to be having an immediate impact.",
+      "adx_keywords": "Politics and Government;Economic Conditions and Trends;Ruble (Currency);Banking and Financial Institutions;Currency;International Trade and World Market;Central Bank of Russia;SWIFT(Society for Worldwide Interbank Financial Telecommunication);Russia",
+      "asset_id": 100000008230892,
+      "byline": "By Patricia Cohen and Jeanna Smialek",
+      "des_facet": [
+        "Politics and Government",
+        "Economic Conditions and Trends",
+        "Ruble (Currency)",
+        "Banking and Financial Institutions",
+        "Currency",
+        "International Trade and World Market"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Russia"
+      ],
+      "id": 100000008230892,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "",
+          "copyright": "The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "business",
+      "org_facet": [
+        "Central Bank of Russia",
+        "SWIFT(Society for Worldwide Interbank Financial Telecommunication)"
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-28",
+      "section": "Business",
+      "source": "New York Times",
+      "subsection": "",
+      "title": "The West’s Plan to Isolate Putin: Undermine the Ruble",
+      "type": "Article",
+      "updated": "2022-02-28 23:39:31",
+      "uri": "nyt://article/c164b4fd-6cae-5d3e-8fe2-e0fc406fd1c9",
+      "url": "https://www.nytimes.com/2022/02/28/business/russia-sanctions-central-bank-ruble.html"
+    },
+    {
+      "abstract": "Days of downpours have pummeled Queensland and New South Wales, with the authorities describing the wild weather as “waves of water just coming down.”",
+      "adx_keywords": "Floods;Rain;Deaths (Fatalities);Queensland (Australia);New South Wales (Australia)",
+      "asset_id": 100000008230269,
+      "byline": "By Yan Zhuang",
+      "des_facet": [
+        "Floods",
+        "Rain",
+        "Deaths (Fatalities)"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Queensland (Australia)",
+        "New South Wales (Australia)"
+      ],
+      "id": 100000008230269,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Using small boats to travel through floodwaters in Lismore, Australia, on Monday.",
+          "copyright": "Jason O'Brien/Australian Associated Press, via Associated Press",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+
+      ],
+      "per_facet": [
+
+      ],
+      "published_date": "2022-02-27",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Australia",
+      "title": "‘Rain Bomb’ Hits Northeastern Australia, Killing at Least 9",
+      "type": "Article",
+      "updated": "2022-02-28 18:55:54",
+      "uri": "nyt://article/d7ff26b0-09bc-5635-8c31-32689f11bb90",
+      "url": "https://www.nytimes.com/2022/02/27/world/australia/australia-flood-queensland.html"
+    },
+    {
+      "abstract": "On paper, the Russian president appears to own very little. Yet estimates put his hidden wealth well over $100 billion.",
+      "adx_keywords": "Assets, Frozen;Embargoes and Sanctions;Russian Invasion of Ukraine (2022);Politics and Government;International Relations;United States International Relations;Putin, Vladimir V;European Union;Russia",
+      "asset_id": 100000008228119,
+      "byline": "By Mike McIntire and Michael Forsythe",
+      "des_facet": [
+        "Assets, Frozen",
+        "Embargoes and Sanctions",
+        "Russian Invasion of Ukraine (2022)",
+        "Politics and Government",
+        "International Relations",
+        "United States International Relations"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Russia"
+      ],
+      "id": 100000008228119,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "President Vladimir V. Putin of Russia at the G20 summit in Osaka, Japan, in 2019. He is facing sanctions from the United States and its European allies.",
+          "copyright": "Erin Schaff/The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+        "European Union"
+      ],
+      "per_facet": [
+        "Putin, Vladimir V"
+      ],
+      "published_date": "2022-02-26",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "Putin Faces Sanctions, but His Assets Remain an Enigma",
+      "type": "Article",
+      "updated": "2022-02-28 20:35:17",
+      "uri": "nyt://article/1d4e5047-d5a2-590b-9b87-6644eadf338b",
+      "url": "https://www.nytimes.com/2022/02/26/world/europe/putin-sanctions-money-assets.html"
+    },
+    {
+      "abstract": "The musician behind ubiquitous hits like “Sweet Caroline” sold his songwriting rights and recordings in another major deal.",
+      "adx_keywords": "Mergers, Acquisitions and Divestitures;Copyrights and Copyright Violations;Pop and Rock Music;Diamond, Neil;Universal Music Group",
+      "asset_id": 100000008231367,
+      "byline": "By Ben Sisario",
+      "des_facet": [
+        "Mergers, Acquisitions and Divestitures",
+        "Copyrights and Copyright Violations",
+        "Pop and Rock Music"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+
+      ],
+      "id": 100000008231367,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "Neil Diamond’s work as a songwriter is particularly valuable, not only for his own recordings but for the many cover versions of his songs that have become hits by other artists.",
+          "copyright": "Paul Buck/European Pressphoto Agency",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "arts",
+      "org_facet": [
+        "Universal Music Group"
+      ],
+      "per_facet": [
+        "Diamond, Neil"
+      ],
+      "published_date": "2022-02-28",
+      "section": "Arts",
+      "source": "New York Times",
+      "subsection": "Music",
+      "title": "Neil Diamond Sells Entire Catalog to Universal Music",
+      "type": "Article",
+      "updated": "2022-02-28 11:43:03",
+      "uri": "nyt://article/8b06c218-c566-5ab3-84d1-90a60aef5a62",
+      "url": "https://www.nytimes.com/2022/02/28/arts/music/neil-diamond-catalog-sale.html"
+    },
+    {
+      "abstract": "A week into the biggest military mobilization in Europe since World War II, here’s a guide to how it came about, and what’s at stake for Russia, the U.S. and NATO.",
+      "adx_keywords": "Defense and Military Forces;United States International Relations;Embargoes and Sanctions;Biden, Joseph R Jr;Putin, Vladimir V;European Union;North Atlantic Treaty Organization;Ukraine;Russia;Kazakhstan;Belarus;Geneva (Switzerland)",
+      "asset_id": 100000008150706,
+      "byline": "By Dan Bilefsky, Richard Pérez-Peña and Eric Nagourney",
+      "des_facet": [
+        "Defense and Military Forces",
+        "United States International Relations",
+        "Embargoes and Sanctions"
+      ],
+      "eta_id": 0,
+      "geo_facet": [
+        "Ukraine",
+        "Russia",
+        "Kazakhstan",
+        "Belarus",
+        "Geneva (Switzerland)"
+      ],
+      "id": 100000008150706,
+      "media": [
+        {
+          "approved_for_syndication": 1,
+          "caption": "A Ukrainian soldier patrolling the front lines in December. Tensions between Ukraine and Russia have been simmering since 2014.",
+          "copyright": "Brendan Hoffman for The New York Times",
+          "subtype": "photo",
+          "type": "image"
+        }
+      ],
+      "nytdsection": "world",
+      "org_facet": [
+        "European Union",
+        "North Atlantic Treaty Organization"
+      ],
+      "per_facet": [
+        "Biden, Joseph R Jr",
+        "Putin, Vladimir V"
+      ],
+      "published_date": "2022-01-10",
+      "section": "World",
+      "source": "New York Times",
+      "subsection": "Europe",
+      "title": "The Roots of the Ukraine War: How the Crisis Developed",
+      "type": "Article",
+      "updated": "2022-02-28 19:34:40",
+      "uri": "nyt://article/74da1e4d-dc7b-5ef6-9ae2-05d93c456b4a",
+      "url": "https://www.nytimes.com/article/russia-ukraine-nato-europe.html"
+    }
+  ],
+  "status": "OK"
+}
