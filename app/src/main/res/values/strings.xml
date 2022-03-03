@@ -24,5 +24,7 @@
     <string name="title_article_detail">Article Details</string>
     <string name="you_haven_t_saved_any_article">You haven\'t saved any article :(</string>
     <string name="title_saved_articles">Saved Articles</string>
+    <string name="error_message_reached_quota_limit">Some error occurred, you have reached quota limit. Please try again later!</string>
+    <string name="transition_layout">app_logo</string>
 
 </resources>

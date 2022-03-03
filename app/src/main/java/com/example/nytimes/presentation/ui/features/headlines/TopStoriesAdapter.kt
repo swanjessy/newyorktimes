@@ -19,18 +19,15 @@ class TopStoriesAdapter : RecyclerView.Adapter<TopStoriesAdapter.ViewHolder>() {
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, callback)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemTopStoriesBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = differ.currentList[position]
@@ -67,8 +64,6 @@ class TopStoriesAdapter : RecyclerView.Adapter<TopStoriesAdapter.ViewHolder>() {
     fun setOnItemClickListener(listener: (Article?) -> Unit) {
         onItemClickListener = listener
     }
-
-
 }
 
 

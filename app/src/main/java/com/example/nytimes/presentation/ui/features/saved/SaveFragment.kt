@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentSaveBinding
-import com.example.nytimes.presentation.viewmodel.NewsViewModel
 import com.example.nytimes.presentation.ui.features.sections.SectionAdapter
+import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -25,7 +25,6 @@ class SaveFragment : Fragment() {
 
     private var _binding: FragmentSaveBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: NewsViewModel by viewModels()
 
     @Inject
@@ -79,16 +78,13 @@ class SaveFragment : Fragment() {
                         }
                         show()
                     }
-
             }
-
         }
 
         ItemTouchHelper(itemTouchHelperCallback).apply {
             attachToRecyclerView(binding.articleRv)
         }
     }
-
 
     private fun initArticlesRv() = with(binding) {
         articleRv.apply {
@@ -113,6 +109,4 @@ class SaveFragment : Fragment() {
         val title = toolbar?.findViewById<TextView>(R.id.tb_title)
         title?.text = getString(R.string.title_saved_articles)
     }
-
-
 }

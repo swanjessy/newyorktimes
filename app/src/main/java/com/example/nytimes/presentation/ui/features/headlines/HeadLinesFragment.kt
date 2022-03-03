@@ -15,7 +15,7 @@ import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentNewsBinding
 import com.example.nytimes.presentation.ui.features.movies.MoviesReviewAdapter
-import com.example.nytimes.presentation.viewmodel.NewsViewModel
+import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
@@ -29,7 +29,10 @@ class HeadLinesFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
-    private var period = 1
+    private val period = 1
+    private val type = "picks"
+    private val offset = 10
+    private val order = "by-opening-date"
 
     @Inject
     lateinit var topStoriesAdapter: TopStoriesAdapter
@@ -52,7 +55,7 @@ class HeadLinesFragment : Fragment() {
         initArticlesRv()
         initMoviesRv()
         observePopularArticles()
-        observeTopics()
+        observeTopStories()
         observeMovieReview()
 
         binding.carousel1.apply {
@@ -61,7 +64,9 @@ class HeadLinesFragment : Fragment() {
 
     }
 
-
+    /**
+     * This method will observe live data for most popular articles to display in carousel
+     */
     private fun observePopularArticles() {
         viewModel.getMostPopularNews(period)
         viewModel.popularArticles.observe(viewLifecycleOwner, { response ->
@@ -102,7 +107,10 @@ class HeadLinesFragment : Fragment() {
         })
     }
 
-
+    /**
+     * Method to bind adapter to Top-Stories recycler view
+     * Item OnClick is handled here and sends argument(article) to detail fragment
+     */
     private fun initArticlesRv() = with(binding) {
         binding.rvTopStories.apply {
             adapter = topStoriesAdapter
@@ -121,6 +129,10 @@ class HeadLinesFragment : Fragment() {
         }
     }
 
+    /**
+     * Method to bind adapter to Movie-critics-review recycler view
+     * Item OnClick is handled here and sends argument(movie) to movie-info fragment
+     */
     private fun initMoviesRv() = with(binding) {
         binding.rvMovieReviews.apply {
             adapter = moviesReviewAdapter
@@ -139,8 +151,10 @@ class HeadLinesFragment : Fragment() {
         }
     }
 
-
-    private fun observeTopics() {
+    /**
+     * This function will observe live data for top-stories and update any changes.
+     */
+    private fun observeTopStories() {
         viewModel.getTopStories("home")
         viewModel.topStories.observe(viewLifecycleOwner, { response ->
             when (response) {
@@ -184,8 +198,11 @@ class HeadLinesFragment : Fragment() {
         })
     }
 
+    /**
+     * This function will observe live data for movie critic reviews and update any changes.
+     */
     private fun observeMovieReview() {
-        viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
+        viewModel.getMovieReview(type = type, offset = offset, order = order)
         viewModel.movieReview.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is Resource.Success -> {
@@ -211,6 +228,9 @@ class HeadLinesFragment : Fragment() {
         })
     }
 
+    /**
+     * Method to update common toolbar title.
+     */
     private fun setUpToolbar() {
         val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
         val title = toolbar?.findViewById<TextView>(R.id.tb_title)

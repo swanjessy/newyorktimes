@@ -24,7 +24,6 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.ViewHolder>() {
 
     val differ = AsyncListDiffer(this, callback)
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemStorySectionBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
@@ -68,8 +67,6 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.ViewHolder>() {
     fun setOnItemClickListener(listener: (Article?) -> Unit) {
         onItemClickListener = listener
     }
-
-
 }
 
 

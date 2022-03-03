@@ -13,14 +13,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
             android:id="@+id/carousel1"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:background="#333333"
             app:autoPlay="true"
-            app:autoPlayDelay="3000"
+            app:autoPlayDelay="8000"
             app:autoWidthFixing="true"
             app:bottomShadowAlpha="0.6"
             app:bottomShadowHeight="64dp"
@@ -66,7 +65,7 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginTop="27dp"
-                android:background="@drawable/shape_round" />
+                android:background="@drawable/shape_oval_solid_red" />
 
         </LinearLayout>
 
@@ -75,10 +74,10 @@
             android:id="@+id/top_stories_pb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
             android:layout_margin="20dp"
-            android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/item_menu_tint"/>
+            android:indeterminate="true"
+            android:indeterminateTint="@color/item_menu_tint"
+            android:indeterminateTintMode="src_atop" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -124,8 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:indeterminate="true"
-            android:indeterminateTintMode="src_atop"
-            android:indeterminateTint="@color/item_menu_tint"/>
+            android:indeterminateTint="@color/item_menu_tint"
+            android:indeterminateTintMode="src_atop" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -139,9 +138,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_movie_review" />
 
-
         <!-- ================================================================ -->
-
 
     </LinearLayout>
 

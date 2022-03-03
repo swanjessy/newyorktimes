@@ -15,18 +15,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentSectionsBinding
-import com.example.nytimes.presentation.viewmodel.NewsViewModel
+import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.DataSet
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
+private const val TAG = "Section"
 
 @AndroidEntryPoint
 class SectionFragment : Fragment() {
 
     private var _binding: FragmentSectionsBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: NewsViewModel by viewModels()
 
     @Inject
@@ -50,12 +51,15 @@ class SectionFragment : Fragment() {
         setUpToolbar()
         initArticlesRv()
         initCategoryRv()
-        observeTopics()
+        observeCategoryAndUpdateArticles()
         swipeToRefreshArticles()
 
     }
 
-
+    /**
+     * Method to bind adapter to Top-Stories recycler view
+     * Item OnClick is handled here and sends argument(article) to detail fragment
+     */
     private fun initArticlesRv() = with(binding) {
         articleRv.apply {
             adapter = sectionAdapter
@@ -74,7 +78,10 @@ class SectionFragment : Fragment() {
         }
     }
 
-
+    /**
+     * Method to bind adapter to Category recycler view
+     * Updates the selected category on Item OnClick
+     */
     private fun initCategoryRv() = with(binding.categoryRv) {
         adapter = categoryAdapter
         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
@@ -82,10 +89,11 @@ class SectionFragment : Fragment() {
         categoryAdapter.setOnItemClickListener {
             viewModel.currentTopic.value = it.title
         }
-
     }
 
-
+    /**
+     * Method to swipe and refresh articles displayed
+     */
     private fun swipeToRefreshArticles() = with(binding) {
         refreshArticles.setOnRefreshListener {
             viewModel.refreshTopStories {
@@ -94,7 +102,10 @@ class SectionFragment : Fragment() {
         }
     }
 
-    private fun observeTopics() {
+    /**
+     * This method will update the articles to display when the selected category changes.
+     */
+    private fun observeCategoryAndUpdateArticles() {
         if (viewModel.currentTopic.value.isNullOrEmpty()) {
             viewModel.currentTopic.value = DataSet.category[0].title
         }
@@ -131,10 +142,10 @@ class SectionFragment : Fragment() {
 
                 }
                 is Resource.Error -> {
-                    Log.i("TAG", "observeTopics: status = ${response.message}")
+                    Log.i(TAG, "observeTopics: status = ${response.message}")
                     Toast.makeText(
                         requireContext(),
-                        "Some error occurred, you have reached quota limit. Please try again later!",
+                        getString(R.string.error_message_reached_quota_limit),
                         Toast.LENGTH_SHORT
                     ).show()
                     binding.refreshArticles.isRefreshing = false
@@ -147,6 +158,9 @@ class SectionFragment : Fragment() {
         })
     }
 
+    /**
+     * Update common toolbar title.
+     */
     private fun setUpToolbar() {
         val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
         val title = toolbar?.findViewById<TextView>(R.id.tb_title)

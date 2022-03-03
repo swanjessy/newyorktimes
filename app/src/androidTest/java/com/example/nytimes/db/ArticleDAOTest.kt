@@ -18,7 +18,7 @@ class NewsArticlesDaoTest : DaoTest<NYDatabase>(NYDatabase::class.java) {
 
     @Test
     @Throws(InterruptedException::class)
-    fun insertNewsArticle() = runBlocking {
+    fun insertNewsArticleTest() = runBlocking {
         // GIVEN
         val article = Article("Title 1", "Descrp 1", "image 1", "url 1", "date 1")
         val insertItem = db.getArticleDAO().insert(article)
@@ -30,7 +30,7 @@ class NewsArticlesDaoTest : DaoTest<NYDatabase>(NYDatabase::class.java) {
 
     @Test
     @Throws(InterruptedException::class)
-    fun insertNewsArticlesAndRead() = runBlocking {
+    fun insertNewsArticlesAndReadTest() = runBlocking {
         // GIVEN
         val input1 = Article("Title 1", "Descrp 1", "image 1", "url 1", "date 1")
         val input2 = Article("Title 2", "Descrp 2", "image 2", "url 2", "date 2")

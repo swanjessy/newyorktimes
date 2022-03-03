@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentArticleDetailsBinding
-import com.example.nytimes.presentation.viewmodel.NewsViewModel
+import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

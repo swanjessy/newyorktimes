@@ -31,7 +31,6 @@ class APIServiceTest : BaseApiTest() {
             .create(APIService::class.java)
     }
 
-
     @Test
     @Throws(IOException::class, InterruptedException::class)
     fun getMostPopularNews_APISuccess() = runBlocking {
@@ -51,7 +50,6 @@ class APIServiceTest : BaseApiTest() {
         MatcherAssert.assertThat(article1?.source, CoreMatchers.`is`("New York Times"))
         MatcherAssert.assertThat(article1?.type, CoreMatchers.`is`("Article"))
     }
-
 
     @Test
     @Throws(Throwable::class)
@@ -80,8 +78,6 @@ class APIServiceTest : BaseApiTest() {
                 }
             }
         }
-
         MatcherAssert.assertThat(exceptionMessage, CoreMatchers.notNullValue())
-
     }
 }

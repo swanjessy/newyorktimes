@@ -19,18 +19,15 @@ class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>
         override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, callback)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemMovieReviewBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = differ.currentList[position]
@@ -50,7 +47,7 @@ class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>
             binding.tvRating.text = "MPAA Rating : ${result.mpaa_rating}"
 
             val imageUrl = result.multimedia.src
-            imageUrl?.let {
+            imageUrl.let {
                 Glide.with(binding.imgMovie.context).load(imageUrl)
                     .into(binding.imgMovie)
             }
@@ -68,8 +65,6 @@ class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>
     fun setOnItemClickListener(listener: (Result?) -> Unit) {
         onItemClickListener = listener
     }
-
-
 }
 
 

@@ -50,5 +50,4 @@ abstract class BaseApiTest {
         }
         mockWebServer.enqueue(mockResponse.setBody(source.readString(StandardCharsets.UTF_8)))
     }
-
 }

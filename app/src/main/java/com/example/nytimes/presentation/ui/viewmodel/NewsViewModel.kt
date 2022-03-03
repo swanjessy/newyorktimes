@@ -1,4 +1,4 @@
-package com.example.nytimes.presentation.viewmodel
+package com.example.nytimes.presentation.ui.viewmodel
 
 import androidx.lifecycle.*
 import com.example.nytimes.data.model.mostpopular.MostPopular
