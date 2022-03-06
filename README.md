@@ -20,8 +20,8 @@ Retrofit2 for remote network calls to get<br/>
 <h2>Local Data Source</h2>
 Room Database for saving news article.
 
-<h2>Unit Testing</h2>
-Junit, Mockito , MockWebserver are used for writing test cases for modules.
+<h2>Unit and UI Testing</h2>
+Junit, Mockito , MockWebserver are used for writing test cases for modules and Espresso for UI Testing.
 
 <h2>4. Min SDK Version</h2>
 
