@@ -1,7 +1,6 @@
 package com.example.nytimes.utils
 
 import android.util.Log
-import com.example.clothestore.data.util.ErrorResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

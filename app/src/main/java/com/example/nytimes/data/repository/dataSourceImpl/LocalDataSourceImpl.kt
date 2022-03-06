@@ -20,5 +20,4 @@ class LocalDataSourceImpl(
     override suspend fun deleteArticlesFromDB(article: Article) {
         articleDAO.deleteArticle(article)
     }
-
 }

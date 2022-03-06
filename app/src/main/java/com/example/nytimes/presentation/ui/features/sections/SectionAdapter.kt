@@ -19,7 +19,6 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.ViewHolder>() {
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, callback)
@@ -29,7 +28,6 @@ class SectionAdapter : RecyclerView.Adapter<SectionAdapter.ViewHolder>() {
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = differ.currentList[position]

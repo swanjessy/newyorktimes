@@ -64,5 +64,4 @@ class MovieInfoFragment : Fragment() {
         val title = toolbar?.findViewById<TextView>(R.id.tb_title)
         title?.text = getString(R.string.title_movie_review)
     }
-
 }

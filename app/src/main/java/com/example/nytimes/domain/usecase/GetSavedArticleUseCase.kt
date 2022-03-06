@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GetSavedArticleUseCase @Inject constructor(private val newsRepository: NewsRepository) {
+
     suspend fun invoke(): Flow<List<Article>> {
         return newsRepository.getSavedArticle()
     }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.Assert
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -45,7 +45,6 @@ class NewsArticlesDaoTest : DaoTest<NYDatabase>(NYDatabase::class.java) {
         assertThat(mockResponse, CoreMatchers.notNullValue())
         assertThat(expectedResponse, CoreMatchers.notNullValue())
         expectedResponse.assertItems(mockResponse)
-
     }
 
     @Test
@@ -63,7 +62,7 @@ class NewsArticlesDaoTest : DaoTest<NYDatabase>(NYDatabase::class.java) {
             actualList = actualRepoList
         }
 
-        Assert.assertTrue(actualList.isEmpty())
+        // THEN
+        assertTrue(actualList.isEmpty())
     }
-
 }

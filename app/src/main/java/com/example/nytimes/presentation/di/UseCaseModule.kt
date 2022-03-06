@@ -52,7 +52,6 @@ object UseCaseModule {
         return DeleteArticleUseCase(newsRepository)
     }
 
-
     @Singleton
     @Provides
     fun provideSaveArticleUseCase(
@@ -60,7 +59,6 @@ object UseCaseModule {
     ): SaveArticleUseCase {
         return SaveArticleUseCase(newsRepository)
     }
-
 }
 
 

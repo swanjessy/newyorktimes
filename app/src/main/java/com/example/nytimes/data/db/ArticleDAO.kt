@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface ArticleDAO {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(article: Article)
 
@@ -17,5 +18,4 @@ interface ArticleDAO {
 
     @Delete
     suspend fun deleteArticle(article: Article)
-
 }

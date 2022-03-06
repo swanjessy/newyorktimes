@@ -27,7 +27,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
         override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, callback)
@@ -53,7 +52,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
             binding.apply {
 
                 itemCategoryTitle.text = category.title
-
                 binding.root.setOnClickListener {
                     onItemClickListener?.let {
                         it(category)
@@ -62,7 +60,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
                         notifyItemChanged(absoluteAdapterPosition)
                         return@setOnClickListener
                     }
-
                     selectedItem = absoluteAdapterPosition
                     notifyDataSetChanged()
                 }
@@ -76,7 +73,6 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
                                 R.color.white
                             )
                         )
-
                         MyDrawableCompat.setColorFilter(
                             itemCategoryTitle.background,
                             ContextCompat.getColor(

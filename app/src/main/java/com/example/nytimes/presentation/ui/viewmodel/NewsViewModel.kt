@@ -12,7 +12,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
 class NewsViewModel @Inject constructor(
     private val getMostPopularUseCase: GetMostPopularUseCase,
@@ -41,7 +40,6 @@ class NewsViewModel @Inject constructor(
     private val _movieReview: MutableLiveData<Resource<MovieReview>> = MutableLiveData()
     val movieReview: LiveData<Resource<MovieReview>>
         get() = _movieReview
-
 
     fun getMostPopularNews(period: Int) = viewModelScope.launch {
         if (networkObserver.value == true) {
@@ -77,9 +75,7 @@ class NewsViewModel @Inject constructor(
             .collect {
                 _movieReview.postValue(it)
             }
-
     }
-
 
     //local data
     fun saveArticle(article: Article) = viewModelScope.launch {
@@ -96,10 +92,7 @@ class NewsViewModel @Inject constructor(
         deleteArticleUseCase.invoke(article)
     }
 
-
-    // set default topic when opening
+    // set default category for when calling top articles
     private fun <T : Any?> MutableLiveData<T>.defaultTopic(initialValue: T) =
         apply { setValue(initialValue) }
-
-
 }

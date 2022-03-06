@@ -16,6 +16,7 @@ import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentSaveBinding
 import com.example.nytimes.presentation.ui.features.sections.SectionAdapter
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
+import com.example.nytimes.utils.Constants.ARGS_ARTICLE
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -36,7 +37,6 @@ class SaveFragment : Fragment() {
     ): View? {
         _binding = FragmentSaveBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +52,6 @@ class SaveFragment : Fragment() {
                 binding.tvEmptyList.visibility = View.GONE
                 binding.articleRv.visibility = View.VISIBLE
             }
-
         })
 
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
@@ -93,7 +92,7 @@ class SaveFragment : Fragment() {
             sectionAdapter.setOnItemClickListener {
                 it?.let {
                     val bundle = Bundle().apply {
-                        putParcelable("article", it)
+                        putParcelable(ARGS_ARTICLE, it)
                     }
                     findNavController().navigate(
                         R.id.action_saveFragment_to_articleDetailsFragment,

@@ -20,7 +20,6 @@ object RemoteDataModule {
     ): RemoteDataSource {
         return RemoteDataSourceImpl(apiService)
     }
-
 }
 
 

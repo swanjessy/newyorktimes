@@ -42,6 +42,4 @@ class NewsRepositoryImpl(
     override fun getSavedArticle(): Flow<List<Article>> {
         return localDataSource.getSavedArticles()
     }
-
-
 }

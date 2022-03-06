@@ -19,14 +19,12 @@ interface APIService {
         @Query("api-key") apiKey: String = BuildConfig.API_KEY
     ): MostPopular
 
-
     @GET("topstories/v2/{section}.json")
     suspend fun getTopStories(
         @Path("section") section: String,
         @Query("api-key")
         apiKey: String = BuildConfig.API_KEY
     ): TopStories
-
 
     @GET("movies/v2/reviews/{type}.json")
     suspend fun getMovieReview(

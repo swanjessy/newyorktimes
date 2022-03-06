@@ -9,7 +9,7 @@ import com.example.nytimes.utils.NetworkManager
 import com.example.nytimes.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -18,7 +18,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
-
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -66,7 +65,7 @@ class NewsViewModelTest {
     }
 
     @Test
-    fun givenResponseSuccess_getAllMovies_shouldReturnSuccess() =
+    fun `should return live data success when given response is success`() =
         testCoroutineRule.runBlockingTest {
 
             val movieReview = getMovieReviewExpectedResult()
@@ -80,39 +79,36 @@ class NewsViewModelTest {
                 .`when`(getMoviesUseCase)
                 .invoke(type = "picks", offset = 10, order = "by-opening-date")
 
-
             viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
-
 
             Mockito.verify(getMoviesUseCase)
                 .invoke(type = "picks", offset = 10, order = "by-opening-date")
 
-            Assert.assertEquals(viewModel.movieReview.value, expectedResponse)
-
+            assertEquals(viewModel.movieReview.value, expectedResponse)
         }
 
 
     @Test
-    fun givenResponseError_getMovieReview_shouldReturnError() = testCoroutineRule.runBlockingTest {
+    fun `should return live data error when given response is success`() =
+        testCoroutineRule.runBlockingTest {
 
-        val expectedResponse = Resource.Error("401 Unauthorized request", null)
+            val expectedResponse = Resource.Error("401 Unauthorized request", null)
 
-        val flow = flow {
-            emit(
-                expectedResponse
-            )
+            val flow = flow {
+                emit(
+                    expectedResponse
+                )
+            }
+
+            Mockito.doReturn(flow)
+                .`when`(getMoviesUseCase)
+                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+
+            viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
+
+            Mockito.verify(getMoviesUseCase)
+                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+
+            assertEquals(viewModel.movieReview.value, expectedResponse)
         }
-
-        Mockito.doReturn(flow)
-            .`when`(getMoviesUseCase)
-            .invoke(type = "picks", offset = 10, order = "by-opening-date")
-
-        viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
-
-        Mockito.verify(getMoviesUseCase)
-            .invoke(type = "picks", offset = 10, order = "by-opening-date")
-
-        Assert.assertEquals(viewModel.movieReview.value, expectedResponse)
-
-    }
 }

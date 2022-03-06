@@ -11,7 +11,6 @@ import com.example.nytimes.databinding.ActivityMainBinding
 import com.example.nytimes.utils.NetworkUtils
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -34,9 +33,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         binding.navBottom.setupWithNavController(navController)
-
     }
-
 
     private fun setUpToolBar() {
         setSupportActionBar(binding.toolBar)
@@ -63,5 +60,4 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
-
 }

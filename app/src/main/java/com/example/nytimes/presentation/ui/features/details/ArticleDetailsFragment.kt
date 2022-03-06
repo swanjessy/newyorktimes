@@ -16,7 +16,6 @@ import com.example.nytimes.databinding.FragmentArticleDetailsBinding
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class ArticleDetailsFragment : Fragment() {
 
@@ -33,11 +32,10 @@ class ArticleDetailsFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupToolbar()
+        setUpToolbar()
 
         val bundle = args.article
         val articleURL = bundle.url
@@ -55,14 +53,11 @@ class ArticleDetailsFragment : Fragment() {
                     .show()
             }
         }
-
-
     }
 
-    private fun setupToolbar() {
+    private fun setUpToolbar() {
         val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
         val title = toolbar?.findViewById<TextView>(R.id.tb_title)
         title?.text = getString(R.string.title_article_detail)
     }
-
 }

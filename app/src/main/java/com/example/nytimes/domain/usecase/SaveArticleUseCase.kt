@@ -5,7 +5,7 @@ import com.example.nytimes.domain.repository.NewsRepository
 import javax.inject.Inject
 
 class SaveArticleUseCase @Inject constructor(private val newsRepository: NewsRepository) {
+
     suspend fun invoke(article: Article) =
         newsRepository.saveArticle(article)
-
 }

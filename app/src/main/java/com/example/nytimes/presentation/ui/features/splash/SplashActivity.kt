@@ -51,7 +51,6 @@ class SplashActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
 
             }
-
         }.start()
     }
 }

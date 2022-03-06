@@ -17,7 +17,6 @@ object LocalDataModule {
     fun provideLocalDataSource(articleDAO: ArticleDAO): LocalDataSource {
         return LocalDataSourceImpl(articleDAO)
     }
-
 }
 
 

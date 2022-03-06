@@ -2,16 +2,14 @@ package com.example.nytimes.api
 
 import com.example.nytimes.BuildConfig
 import com.example.nytimes.data.api.APIService
-import com.example.nytimes.utils.convertErrorBody
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
@@ -33,51 +31,40 @@ class APIServiceTest : BaseApiTest() {
 
     @Test
     @Throws(IOException::class, InterruptedException::class)
-    fun getMostPopularNews_APISuccess() = runBlocking {
+    fun `should get most popular news response success`() = runBlocking {
         enqueueResponse("mock_popular_news_success.json")
         val response = service.getMostPopularNews(1, BuildConfig.API_KEY)
         mockWebServer.takeRequest()
 
-        MatcherAssert.assertThat(response, CoreMatchers.notNullValue())
-        MatcherAssert.assertThat(response.results?.size, CoreMatchers.`is`(20))
-        MatcherAssert.assertThat(response.status, CoreMatchers.`is`("OK"))
+        assertThat(response, CoreMatchers.notNullValue())
+        assertThat(response.results?.size, CoreMatchers.`is`(20))
+        assertThat(response.status, CoreMatchers.`is`("OK"))
 
         val articles = response.results
-        MatcherAssert.assertThat(articles, CoreMatchers.notNullValue())
+        assertThat(articles, CoreMatchers.notNullValue())
 
         val article1 = articles?.get(0)
-        MatcherAssert.assertThat(article1, CoreMatchers.notNullValue())
-        MatcherAssert.assertThat(article1?.source, CoreMatchers.`is`("New York Times"))
-        MatcherAssert.assertThat(article1?.type, CoreMatchers.`is`("Article"))
+        assertThat(article1, CoreMatchers.notNullValue())
+        assertThat(article1?.source, CoreMatchers.`is`("New York Times"))
+        assertThat(article1?.type, CoreMatchers.`is`("Article"))
     }
 
     @Test
     @Throws(Throwable::class)
-    fun getMostPopularNews_APIFailure() = runBlocking {
-        lateinit var exceptionMessage: String
+    fun `should throw error for most popular news response when api key is not valid`() =
+        runBlocking {
+            lateinit var exceptionMessage: String
 
-        try {
-            service.getMostPopularNews(1, "")
-            fail("Should throw an exception if apikey is not valid or empty")
-        } catch (throwable: Throwable) {
-            throwable.localizedMessage
-            when (throwable) {
-                is IOException -> {
-                    exceptionMessage = throwable.message.toString()
-                }
-                is HttpException -> {
-                    val code = throwable.code()
-                    val errorResponse = convertErrorBody(throwable)
-                    exceptionMessage = errorResponse?.message.toString()
-                }
-                is KotlinNullPointerException -> {
-                    exceptionMessage = "Null pointer Exception"
-                }
-                else -> {
-                    exceptionMessage = "Some error has occurred"
+            try {
+                service.getMostPopularNews(1, "")
+                fail("Should throw an exception if apikey is not valid or empty")
+            } catch (throwable: Throwable) {
+                when (throwable) {
+                    is IOException -> {
+                        exceptionMessage = throwable.message.toString()
+                    }
                 }
             }
+            assertThat(exceptionMessage, CoreMatchers.notNullValue())
         }
-        MatcherAssert.assertThat(exceptionMessage, CoreMatchers.notNullValue())
-    }
 }

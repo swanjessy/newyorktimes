@@ -16,7 +16,7 @@ import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentSectionsBinding
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
-import com.example.nytimes.utils.DataSet
+import com.example.nytimes.utils.Constants
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -53,7 +53,6 @@ class SectionFragment : Fragment() {
         initCategoryRv()
         observeCategoryAndUpdateArticles()
         swipeToRefreshArticles()
-
     }
 
     /**
@@ -85,7 +84,7 @@ class SectionFragment : Fragment() {
     private fun initCategoryRv() = with(binding.categoryRv) {
         adapter = categoryAdapter
         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        categoryAdapter.differ.submitList(DataSet.category)
+        categoryAdapter.differ.submitList(Constants.category)
         categoryAdapter.setOnItemClickListener {
             viewModel.currentTopic.value = it.title
         }
@@ -107,7 +106,7 @@ class SectionFragment : Fragment() {
      */
     private fun observeCategoryAndUpdateArticles() {
         if (viewModel.currentTopic.value.isNullOrEmpty()) {
-            viewModel.currentTopic.value = DataSet.category[0].title
+            viewModel.currentTopic.value = Constants.category[0].title
         }
         viewModel.currentTopic.observe(viewLifecycleOwner) {
             if (viewModel.networkObserver.value == true) {
@@ -154,7 +153,6 @@ class SectionFragment : Fragment() {
                     binding.refreshArticles.isRefreshing = false
                 }
             }
-
         })
     }
 

@@ -37,5 +37,4 @@ object AdapterModule {
     fun provideSectionsAdapter(): SectionAdapter {
         return SectionAdapter()
     }
-
 }

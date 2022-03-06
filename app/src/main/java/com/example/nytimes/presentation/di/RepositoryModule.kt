@@ -22,7 +22,6 @@ object RepositoryModule {
     ): NewsRepository {
         return NewsRepositoryImpl(remoteDataSource, localDataSource)
     }
-
 }
 
 

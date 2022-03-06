@@ -16,6 +16,8 @@ import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentNewsBinding
 import com.example.nytimes.presentation.ui.features.movies.MoviesReviewAdapter
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
+import com.example.nytimes.utils.Constants.ARGS_ARTICLE
+import com.example.nytimes.utils.Constants.ARGS_MOVIE
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
@@ -61,7 +63,6 @@ class HeadLinesFragment : Fragment() {
         binding.carousel1.apply {
             registerLifecycle(lifecycle)
         }
-
     }
 
     /**
@@ -88,7 +89,6 @@ class HeadLinesFragment : Fragment() {
                                         )
                                     }
                                 }
-
                             }
                         }
                     }
@@ -103,7 +103,6 @@ class HeadLinesFragment : Fragment() {
                     Log.i(TAG, "observePopularArticles: Loading....")
                 }
             }
-
         })
     }
 
@@ -118,7 +117,7 @@ class HeadLinesFragment : Fragment() {
             topStoriesAdapter.setOnItemClickListener {
                 it?.let {
                     val bundle = Bundle().apply {
-                        putParcelable("article", it)
+                        putParcelable(ARGS_ARTICLE, it)
                     }
                     findNavController().navigate(
                         R.id.action_headlines_to_articleDetailsFragment,
@@ -134,13 +133,13 @@ class HeadLinesFragment : Fragment() {
      * Item OnClick is handled here and sends argument(movie) to movie-info fragment
      */
     private fun initMoviesRv() = with(binding) {
-        binding.rvMovieReviews.apply {
+        rvMovieReviews.apply {
             adapter = moviesReviewAdapter
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             moviesReviewAdapter.setOnItemClickListener {
                 it?.let {
                     val bundle = Bundle().apply {
-                        putParcelable("movie", it)
+                        putParcelable(ARGS_MOVIE, it)
                     }
                     findNavController().navigate(
                         R.id.action_headlines_to_movieInfoFragment,
@@ -182,8 +181,8 @@ class HeadLinesFragment : Fragment() {
                     results.let {
                         topStoriesAdapter.differ.submitList(articleList)
                     }
-                    binding.rvTopStories.visibility = View.VISIBLE
                     binding.topStoriesPb.visibility = View.GONE
+                    binding.rvTopStories.visibility = View.VISIBLE
                 }
                 is Resource.Error -> {
                     binding.topStoriesPb.visibility = View.GONE
@@ -194,7 +193,6 @@ class HeadLinesFragment : Fragment() {
                     binding.rvTopStories.visibility = View.GONE
                 }
             }
-
         })
     }
 
@@ -215,7 +213,6 @@ class HeadLinesFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     binding.moviesPb.visibility = View.GONE
-                    Log.i(TAG, "observeMovieReview: ")
                     binding.rvMovieReviews.visibility = View.VISIBLE
 
                 }
@@ -224,7 +221,6 @@ class HeadLinesFragment : Fragment() {
                     binding.rvMovieReviews.visibility = View.GONE
                 }
             }
-
         })
     }
 

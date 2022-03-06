@@ -13,10 +13,9 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.example.nytimes.R
 import com.example.nytimes.presentation.ui.features.MainActivity
+import com.example.nytimes.utils.Constants.ARGS_MOVIE
 import com.example.nytimes.utils.TestDataSet
 import org.hamcrest.CoreMatchers
-import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,21 +28,11 @@ class MovieInfoFragmentUITest {
     @JvmField
     var activityRule = ActivityTestRule(MainActivity::class.java)
 
-    @Before
-    fun beforeTest() {
-
-    }
-
-    @After
-    fun afterTest() {
-
-    }
-
     @Test
-    fun test_data_inflating_on_correct_view() {
+    fun movieInfoFragmentInflateCorrectViewTest() {
         val movie = TestDataSet.FAKE_MOVIE.results.first()
         val bundle = Bundle()
-        bundle.putParcelable("movie", movie)
+        bundle.putParcelable(ARGS_MOVIE, movie)
 
         launchFragment(R.id.movieInfoFragment, bundle)
         onView(withId(R.id.title_movie)).check(matches(withText(movie.headline)))
@@ -96,5 +85,4 @@ class MovieInfoFragmentUITest {
             .setDestination(destinationId)
             .setArguments(argBundle)
             .createTaskStackBuilder().intents[0]
-
 }

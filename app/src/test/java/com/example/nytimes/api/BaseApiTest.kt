@@ -42,7 +42,7 @@ abstract class BaseApiTest {
     @Throws(IOException::class)
     fun enqueueResponse(fileName: String, headers: Map<String, String>) {
         val inputStream = javaClass.classLoader
-                ?.getResourceAsStream(fileName)
+            ?.getResourceAsStream(fileName)
         val source = inputStream?.source()?.buffer() ?: return
         val mockResponse = MockResponse()
         for ((key, value) in headers) {

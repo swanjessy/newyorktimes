@@ -10,8 +10,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
-import org.junit.Assert
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -44,8 +44,7 @@ class NewsDataSourceTest {
     }
 
     @Test
-    fun getMovieReviews_response_success() = runBlocking {
-
+    fun `should get movie review response success`() = runBlocking {
         val expectedResult = getMovieReviewExpectedResult()
         Mockito.doReturn(expectedResult)
             .`when`(apiService)
@@ -58,14 +57,13 @@ class NewsDataSourceTest {
         when (response) {
             is Resource.Success -> {
                 val actualResult = response.data
-                Assert.assertEquals(actualResult, expectedResult)
+                assertEquals(actualResult, expectedResult)
             }
         }
     }
 
     @Test
-    fun getMovieReviews_response_failed() = runBlocking {
-
+    fun `should get movie review response failure`() = runBlocking {
         given(
             apiService.getMovieReview(
                 type = "picks",
@@ -80,7 +78,7 @@ class NewsDataSourceTest {
             dataSource.getMovieReviews(type = "picks", offset = 10, order = "by-opening-date")
                 .first()
 
-        MatcherAssert.assertThat(
+        assertThat(
             response,
             CoreMatchers.instanceOf(Resource.Error::class.java)
         )
