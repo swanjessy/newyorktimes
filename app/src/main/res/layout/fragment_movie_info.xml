@@ -12,139 +12,123 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <include
+            android:id="@+id/include_header"
+            layout="@layout/layout_toolbar" />
+
         <TextView
             android:id="@+id/title_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/dimen_10dp"
             android:gravity="center"
             android:text="@string/lorem_ipsum_2"
             android:textColor="@color/flat_grey_dark_1"
-            android:textSize="18sp"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:textSize="@dimen/text_size_18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_header" />
 
         <ImageView
             android:id="@+id/img_movie"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
+            android:layout_height="@dimen/dimen_300dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_movie" />
-
 
         <TextView
             android:id="@+id/tv_opening_Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
             android:gravity="end"
             android:text="@string/_12th_feb_2017"
             android:textColor="@color/flat_grey_normal_2"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_movie" />
 
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_margin="@dimen/dimen_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_opening_Date"
+            app:srcCompat="@drawable/ic_movie" />
 
-        <LinearLayout
-            android:id="@+id/layout_mv_title"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_display_title"
+            android:layout_width="@dimen/dimen_0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_opening_Date">
+            android:layout_margin="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/img_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_opening_Date"
+            tools:text="@tools:sample/lorem" />
 
-            <ImageView
-                android:id="@+id/img_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                app:srcCompat="@drawable/ic_movie" />
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_margin="@dimen/dimen_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_icon"
+            app:srcCompat="@drawable/ic_avatar" />
 
-            <TextView
-                android:id="@+id/tv_display_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="#333"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:text="@tools:sample/lorem" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layout_mv_byline"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_byline"
+            android:layout_width="@dimen/dimen_0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_mv_title">
-
-            <ImageView
-                android:id="@+id/img_avatar"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                app:srcCompat="@drawable/ic_avatar" />
-
-            <TextView
-                android:id="@+id/tv_byline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="#333"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:text="@tools:sample/lorem" />
-
-        </LinearLayout>
-
+            android:layout_margin="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_15sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/img_avatar"
+            app:layout_constraintTop_toBottomOf="@id/img_icon"
+            tools:text="@tools:sample/lorem" />
 
         <TextView
             android:id="@+id/abstract_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
             android:text="@string/lorem_ipsum"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_mv_byline" />
-
+            app:layout_constraintTop_toBottomOf="@id/img_avatar" />
 
         <Button
             android:id="@+id/tv_hyperlink"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
             android:gravity="center"
             android:text="@string/click_to_know_more"
             android:textColor="@color/flat_blue_2"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_size_12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/abstract_movie" />
 

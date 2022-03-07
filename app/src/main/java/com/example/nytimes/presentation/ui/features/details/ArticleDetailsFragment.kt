@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentArticleDetailsBinding
@@ -35,8 +34,7 @@ class ArticleDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolbar()
-
+        setUpToolBar()
         val bundle = args.article
         val articleURL = bundle.url
 
@@ -49,15 +47,28 @@ class ArticleDetailsFragment : Fragment() {
 
         binding.btnSaveArticle.setOnClickListener {
             viewModel.saveArticle(bundle).also {
-                Toast.makeText(requireContext(), "Article saved successfully", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.title_article_saved), Toast.LENGTH_SHORT)
                     .show()
             }
         }
     }
 
-    private fun setUpToolbar() {
-        val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
-        val title = toolbar?.findViewById<TextView>(R.id.tb_title)
-        title?.text = getString(R.string.title_article_detail)
+    /**
+     * Method to update common toolbar title.
+     */
+    private fun setUpToolBar() {
+        val headerText = binding.includeHeader.tbTitle
+        headerText.text = getString(R.string.title_article_detail)
+        val bookmarkIcon = binding.includeHeader.bookmarks
+        bookmarkIcon.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_articleDetailsFragment_to_saveFragment
+            )
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

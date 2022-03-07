@@ -1,145 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:scrollbars="none"
     tools:context=".presentation.ui.features.headlines.HeadLinesFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <include
+        android:id="@+id/include_header"
+        layout="@layout/layout_toolbar" />
 
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel1"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="#333333"
-            app:autoPlay="true"
-            app:autoPlayDelay="8000"
-            app:autoWidthFixing="true"
-            app:bottomShadowAlpha="0.6"
-            app:bottomShadowHeight="64dp"
-            app:captionTextSize="14sp"
-            app:carouselGravity="CENTER"
-            app:carouselType="BLOCK"
-            app:imagePlaceholder="@drawable/carousel_default_placeholder"
-            app:imageScaleType="centerCrop"
-            app:infiniteCarousel="true"
-            app:nextButtonId="@id/btn_next"
-            app:nextButtonLayout="@layout/next_button_layout"
-            app:nextButtonMargin="4dp"
-            app:previousButtonId="@id/btn_previous"
-            app:previousButtonLayout="@layout/previous_button_layout"
-            app:previousButtonMargin="4dp"
-            app:scaleOnScroll="false"
-            app:scalingFactor=".15"
-            app:showBottomShadow="true"
-            app:showCaption="true"
-            app:showIndicator="true"
-            app:showNavigationButtons="true"
-            app:showTopShadow="true"
-            app:topShadowAlpha="0.15"
-            app:topShadowHeight="32dp"
-            app:touchToPause="true" />
-
+    <ScrollView
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:background="@color/background"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include_header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginTop="@dimen/horizontal_margin"
-                android:text="@string/trending"
-                android:textColor="@color/black"
-                android:textSize="26sp" />
+                app:layoutDescription="@xml/fragment_news_scene">
 
-            <View
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="27dp"
-                android:background="@drawable/shape_oval_solid_red" />
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                    android:id="@+id/carousel1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_250dp"
+                    android:background="@color/flat_grey_dark_1"
+                    app:autoPlay="true"
+                    app:autoPlayDelay="@dimen/carousel_delay"
+                    app:autoWidthFixing="true"
+                    app:bottomShadowAlpha="@dimen/carousel_alpha"
+                    app:bottomShadowHeight="@dimen/dimen_64dp"
+                    app:captionTextSize="@dimen/text_size_14sp"
+                    app:carouselGravity="CENTER"
+                    app:carouselType="BLOCK"
+                    app:imagePlaceholder="@drawable/carousel_default_placeholder"
+                    app:imageScaleType="centerCrop"
+                    app:infiniteCarousel="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:nextButtonId="@id/btn_next"
+                    app:nextButtonLayout="@layout/next_button_layout"
+                    app:nextButtonMargin="@dimen/dimen_4dp"
+                    app:previousButtonId="@id/btn_previous"
+                    app:previousButtonLayout="@layout/previous_button_layout"
+                    app:previousButtonMargin="@dimen/dimen_4dp"
+                    app:scaleOnScroll="false"
+                    app:scalingFactor="@dimen/carousel_scaling"
+                    app:showBottomShadow="true"
+                    app:showCaption="true"
+                    app:showIndicator="true"
+                    app:showNavigationButtons="true"
+                    app:showTopShadow="true"
+                    app:topShadowAlpha="@dimen/carousel_scaling"
+                    app:topShadowHeight="@dimen/dimen_32dp"
+                    app:touchToPause="true" />
+
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:text="@string/trending"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_26sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carousel1" />
+
+                <View
+                    android:layout_width="@dimen/dimen_10dp"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_23dp"
+                    android:background="@drawable/shape_oval_solid_red"
+                    app:layout_constraintLeft_toRightOf="@id/tv_trending"
+                    app:layout_constraintTop_toBottomOf="@id/carousel1" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/top_stories_pb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_20dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/item_menu_tint"
+                android:indeterminateTintMode="src_atop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopStories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_trending"
+                tools:listitem="@layout/item_top_stories" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_movie_critics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:text="@string/movie_critics_review"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_26sp" />
+
+                <View
+                    android:layout_width="@dimen/dimen_10dp"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@drawable/shape_oval_solid_blue"
+                    app:layout_constraintLeft_toRightOf="@id/tv_movie_critics"
+                    app:layout_constraintTop_toBottomOf="@id/rvTopStories" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/movies_pb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_20dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/item_menu_tint"
+                android:indeterminateTintMode="src_atop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_movie_critics" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMovieReviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_movie_critics"
+                tools:listitem="@layout/item_movie_review" />
 
         </LinearLayout>
 
+    </ScrollView>
 
-        <ProgressBar
-            android:id="@+id/top_stories_pb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/item_menu_tint"
-            android:indeterminateTintMode="src_atop" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTopStories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_top_stories" />
-
-
-        <!-- ================================================================ -->
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:text="@string/movie_critics_review"
-                android:textColor="@color/black"
-                android:textSize="26sp" />
-
-            <View
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/shape_oval_solid_blue" />
-
-        </LinearLayout>
-
-        <ProgressBar
-            android:id="@+id/movies_pb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/item_menu_tint"
-            android:indeterminateTintMode="src_atop" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMovieReviews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_movie_review" />
-
-        <!-- ================================================================ -->
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

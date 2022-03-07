@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,7 +39,8 @@ class SaveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpToolbar()
+
+        setUpToolBar()
         initArticlesRv()
         viewModel.getSavedNews().observe(viewLifecycleOwner, {
             if (it.isNullOrEmpty()) {
@@ -70,9 +69,9 @@ class SaveFragment : Fragment() {
                 val position = viewHolder.bindingAdapterPosition
                 val article = sectionAdapter.differ.currentList[position]
                 viewModel.deleteArticle(article)
-                Snackbar.make(view, "Deleted Successfully", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getString(R.string.title_deleted_success), Snackbar.LENGTH_LONG)
                     .apply {
-                        setAction("Undo") {
+                        setAction(getString(R.string.title_undo)) {
                             viewModel.saveArticle(article)
                         }
                         show()
@@ -103,9 +102,15 @@ class SaveFragment : Fragment() {
         }
     }
 
-    private fun setUpToolbar() {
-        val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
-        val title = toolbar?.findViewById<TextView>(R.id.tb_title)
-        title?.text = getString(R.string.title_saved_articles)
+    private fun setUpToolBar() {
+        val headerText = binding.includeHeader.tbTitle
+        headerText.text = getString(R.string.title_saved_articles)
+        val bookmarkIcon = binding.includeHeader.bookmarks
+        bookmarkIcon.visibility = View.GONE
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

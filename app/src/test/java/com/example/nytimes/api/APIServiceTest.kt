@@ -50,7 +50,7 @@ class APIServiceTest : BaseApiTest() {
     }
 
     @Test
-    @Throws(Throwable::class)
+    @Throws(IOException::class)
     fun `should throw error for most popular news response when api key is not valid`() =
         runBlocking {
             lateinit var exceptionMessage: String
@@ -58,12 +58,9 @@ class APIServiceTest : BaseApiTest() {
             try {
                 service.getMostPopularNews(1, "")
                 fail("Should throw an exception if apikey is not valid or empty")
-            } catch (throwable: Throwable) {
-                when (throwable) {
-                    is IOException -> {
-                        exceptionMessage = throwable.message.toString()
-                    }
-                }
+            } catch (exception: IOException) {
+                exceptionMessage = exception.message.toString()
+
             }
             assertThat(exceptionMessage, CoreMatchers.notNullValue())
         }

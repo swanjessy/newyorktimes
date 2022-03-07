@@ -8,9 +8,8 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.nytimes.R
@@ -37,13 +36,14 @@ class MovieInfoFragment : Fragment() {
         val reviewURL = bundle.link.url
         val imageUrl = bundle.multimedia.src
 
-        setUpToolbar()
+        setUpToolBar()
 
         binding.titleMovie.text = bundle.headline
         binding.tvDisplayTitle.text = bundle.display_title
         binding.tvByline.text = bundle.byline
         binding.abstractMovie.text = bundle.summary_short
-        binding.tvOpeningDate.text = "Opening Date : ${bundle.opening_date}"
+        binding.tvOpeningDate.text =
+            String.format(resources.getString(R.string.title_opening_date), bundle.opening_date)
 
         Glide.with(binding.imgMovie.context).load(imageUrl)
             .into(binding.imgMovie)
@@ -59,9 +59,19 @@ class MovieInfoFragment : Fragment() {
         }
     }
 
-    private fun setUpToolbar() {
-        val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
-        val title = toolbar?.findViewById<TextView>(R.id.tb_title)
-        title?.text = getString(R.string.title_movie_review)
+    private fun setUpToolBar() {
+        val headerText = binding.includeHeader.tbTitle
+        headerText.text = getString(R.string.title_movie_review)
+        val bookmarkIcon = binding.includeHeader.bookmarks
+        bookmarkIcon.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_movieInfoFragment_to_saveFragment
+            )
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -7,23 +7,29 @@
     android:orientation="vertical"
     tools:context=".presentation.ui.features.sections.SectionFragment">
 
+    <include
+        android:id="@+id/include_header"
+        layout="@layout/layout_toolbar" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_articles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/include_header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/flat_grey_light_1"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/article_rv"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/dimen_0dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -34,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?listPreferredItemHeight"
                 android:backgroundTint="@color/flat_grey_normal_2"
-                app:cardElevation="4dp">
+                app:cardElevation="@dimen/dimen_4dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/category_rv"

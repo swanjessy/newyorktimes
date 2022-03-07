@@ -6,15 +6,12 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
-
 suspend fun <T> safeApiCall(
     dispatcher: CoroutineDispatcher,
     apiCall: suspend () -> T
 ): Resource<T> {
-
     return withContext(dispatcher) {
         try {
-
             Resource.Success(apiCall.invoke())
 
         } catch (throwable: Throwable) {
@@ -37,12 +34,9 @@ suspend fun <T> safeApiCall(
             }
         }
     }
-
 }
 
 fun convertErrorBody(throwable: HttpException): ErrorResponse? {
-
-
     val s = throwable.response()?.errorBody()?.string()
     s?.let { Log.e("", it) }
 
@@ -51,5 +45,4 @@ fun convertErrorBody(throwable: HttpException): ErrorResponse? {
     } else {
         null
     }
-
 }

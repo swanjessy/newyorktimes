@@ -4,9 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/flat_grey_light_1"
     android:orientation="vertical"
-    tools:context=".presentation.ui.features.sections.SectionFragment">
+    tools:context=".presentation.ui.features.saved.SaveFragment">
+
+    <include
+        android:id="@+id/include_header"
+        layout="@layout/layout_toolbar" />
 
     <TextView
         android:id="@+id/tv_empty_list"
@@ -14,25 +18,24 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/you_haven_t_saved_any_article"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/article_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
         android:visibility="visible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include_header"
         tools:listitem="@layout/item_story_section" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

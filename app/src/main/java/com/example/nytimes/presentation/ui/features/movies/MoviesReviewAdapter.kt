@@ -1,15 +1,19 @@
 package com.example.nytimes.presentation.ui.features.movies
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.nytimes.R
 import com.example.nytimes.data.model.moviesreview.Result
 import com.example.nytimes.databinding.ItemMovieReviewBinding
 
 class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>() {
+
+    private lateinit var context: Context
 
     private val callback = object : DiffUtil.ItemCallback<Result>() {
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
@@ -26,6 +30,7 @@ class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemMovieReviewBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
+        context = parent.context
         return ViewHolder(binding)
     }
 
@@ -44,7 +49,11 @@ class MoviesReviewAdapter : RecyclerView.Adapter<MoviesReviewAdapter.ViewHolder>
         RecyclerView.ViewHolder(binding.root) {
         fun bind(result: Result) {
             binding.tvDisplayTitle.text = result.display_title
-            binding.tvRating.text = "MPAA Rating : ${result.mpaa_rating}"
+            binding.tvRating.text =
+                String.format(
+                    context.resources?.getString(R.string.title_mpaa_rating)!!,
+                    result.mpaa_rating
+                )
 
             val imageUrl = result.multimedia.src
             imageUrl.let {

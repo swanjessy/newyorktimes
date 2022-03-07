@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUpToolBar()
-
         observeNetworkConnectivity()
 
         val navHostFragment =
@@ -33,14 +31,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         binding.navBottom.setupWithNavController(navController)
-    }
-
-    private fun setUpToolBar() {
-        setSupportActionBar(binding.toolBar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        binding.bookmarks.setOnClickListener {
-            navController.navigate(R.id.saveFragment)
-        }
     }
 
     private fun observeNetworkConnectivity() {

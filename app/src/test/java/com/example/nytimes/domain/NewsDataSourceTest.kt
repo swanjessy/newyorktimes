@@ -5,6 +5,7 @@ import com.example.nytimes.TestCoroutineRule
 import com.example.nytimes.TestDataSet.getMovieReviewExpectedResult
 import com.example.nytimes.data.api.APIService
 import com.example.nytimes.data.repository.dataSourceImpl.RemoteDataSourceImpl
+import com.example.nytimes.utils.Constants
 import com.example.nytimes.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -48,35 +49,40 @@ class NewsDataSourceTest {
         val expectedResult = getMovieReviewExpectedResult()
         Mockito.doReturn(expectedResult)
             .`when`(apiService)
-            .getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
+            .getMovieReview(
+                type = Constants.PARAM_TYPE,
+                offset = Constants.PARAM_OFFSET,
+                order = Constants.PARAM_ORDER
+            )
 
-        val response =
-            dataSource.getMovieReviews(type = "picks", offset = 10, order = "by-opening-date")
-                .first()
+        val response = dataSource.getMovieReviews(
+                type = Constants.PARAM_TYPE,
+                offset = Constants.PARAM_OFFSET,
+                order = Constants.PARAM_ORDER
+            ).first()
 
-        when (response) {
-            is Resource.Success -> {
-                val actualResult = response.data
-                assertEquals(actualResult, expectedResult)
-            }
-        }
+        val actualResult = response.data
+        assertEquals(actualResult, expectedResult)
     }
 
     @Test
     fun `should get movie review response failure`() = runBlocking {
         given(
             apiService.getMovieReview(
-                type = "picks",
-                offset = 10,
-                order = "by-opening-date"
+                type = Constants.PARAM_TYPE,
+                offset = Constants.PARAM_OFFSET,
+                order = Constants.PARAM_ORDER
             )
         ).willAnswer {
             throw IOException()
         }
 
         val response =
-            dataSource.getMovieReviews(type = "picks", offset = 10, order = "by-opening-date")
-                .first()
+            dataSource.getMovieReviews(
+                type = Constants.PARAM_TYPE,
+                offset = Constants.PARAM_OFFSET,
+                order = Constants.PARAM_ORDER
+            ).first()
 
         assertThat(
             response,

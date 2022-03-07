@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_headlines_to_movieInfoFragment"
             app:destination="@id/movieInfoFragment" />
+        <action
+            android:id="@+id/action_headlines_to_saveFragment"
+            app:destination="@id/saveFragment" />
     </fragment>
 
     <fragment
@@ -26,6 +29,9 @@
         <action
             android:id="@+id/action_sections_to_articleDetailsFragment"
             app:destination="@id/articleDetailsFragment" />
+        <action
+            android:id="@+id/action_sections_to_saveFragment"
+            app:destination="@id/saveFragment" />
     </fragment>
 
     <fragment
@@ -36,6 +42,9 @@
         <argument
             android:name="article"
             app:argType="com.example.nytimes.data.model.topstories.Article" />
+        <action
+            android:id="@+id/action_articleDetailsFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
     </fragment>
 
     <fragment
@@ -46,6 +55,9 @@
         <argument
             android:name="movie"
             app:argType="com.example.nytimes.data.model.moviesreview.Result" />
+        <action
+            android:id="@+id/action_movieInfoFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
     </fragment>
     <fragment
         android:id="@+id/saveFragment"

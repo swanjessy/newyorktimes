@@ -5,6 +5,10 @@ import com.example.nytimes.TestCoroutineRule
 import com.example.nytimes.TestDataSet.getMovieReviewExpectedResult
 import com.example.nytimes.domain.usecase.*
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
+import com.example.nytimes.utils.Constants.ERROR_MESSAGE_INVALID_KEY
+import com.example.nytimes.utils.Constants.PARAM_OFFSET
+import com.example.nytimes.utils.Constants.PARAM_ORDER
+import com.example.nytimes.utils.Constants.PARAM_TYPE
 import com.example.nytimes.utils.NetworkManager
 import com.example.nytimes.utils.Resource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -77,37 +81,34 @@ class NewsViewModelTest {
 
             Mockito.doReturn(flow)
                 .`when`(getMoviesUseCase)
-                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+                .invoke(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
-            viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
+            viewModel.getMovieReview(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
             Mockito.verify(getMoviesUseCase)
-                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+                .invoke(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
             assertEquals(viewModel.movieReview.value, expectedResponse)
         }
 
-
     @Test
-    fun `should return live data error when given response is success`() =
+    fun `should return live data error when given response is failure`() =
         testCoroutineRule.runBlockingTest {
 
-            val expectedResponse = Resource.Error("401 Unauthorized request", null)
+            val expectedResponse = Resource.Error(ERROR_MESSAGE_INVALID_KEY, null)
 
             val flow = flow {
-                emit(
-                    expectedResponse
-                )
+                emit(expectedResponse)
             }
 
             Mockito.doReturn(flow)
                 .`when`(getMoviesUseCase)
-                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+                .invoke(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
-            viewModel.getMovieReview(type = "picks", offset = 10, order = "by-opening-date")
+            viewModel.getMovieReview(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
             Mockito.verify(getMoviesUseCase)
-                .invoke(type = "picks", offset = 10, order = "by-opening-date")
+                .invoke(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
 
             assertEquals(viewModel.movieReview.value, expectedResponse)
         }

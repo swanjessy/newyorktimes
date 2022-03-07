@@ -5,11 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
@@ -18,12 +17,15 @@ import com.example.nytimes.presentation.ui.features.movies.MoviesReviewAdapter
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Constants.ARGS_ARTICLE
 import com.example.nytimes.utils.Constants.ARGS_MOVIE
+import com.example.nytimes.utils.Constants.PARAM_OFFSET
+import com.example.nytimes.utils.Constants.PARAM_ORDER
+import com.example.nytimes.utils.Constants.PARAM_PERIOD
+import com.example.nytimes.utils.Constants.PARAM_TYPE
+import com.example.nytimes.utils.Constants.TAG_HEADLINE
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import javax.inject.Inject
-
-private const val TAG = "Headlines"
 
 @AndroidEntryPoint
 class HeadLinesFragment : Fragment() {
@@ -31,10 +33,6 @@ class HeadLinesFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
-    private val period = 1
-    private val type = "picks"
-    private val offset = 10
-    private val order = "by-opening-date"
 
     @Inject
     lateinit var topStoriesAdapter: TopStoriesAdapter
@@ -53,7 +51,7 @@ class HeadLinesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolbar()
+        setUpToolBar()
         initArticlesRv()
         initMoviesRv()
         observePopularArticles()
@@ -69,7 +67,7 @@ class HeadLinesFragment : Fragment() {
      * This method will observe live data for most popular articles to display in carousel
      */
     private fun observePopularArticles() {
-        viewModel.getMostPopularNews(period)
+        viewModel.getMostPopularNews(PARAM_PERIOD)
         viewModel.popularArticles.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is Resource.Success -> {
@@ -96,11 +94,14 @@ class HeadLinesFragment : Fragment() {
                     binding.carousel1.setData(listOne)
                 }
                 is Resource.Error -> {
-                    Log.i(TAG, "observePopularArticles: {${response.message}}")
+                    Log.d(TAG_HEADLINE, "observePopularArticles: {${response.message}}")
 
                 }
                 is Resource.Loading -> {
-                    Log.i(TAG, "observePopularArticles: Loading....")
+                    Log.i(TAG_HEADLINE, "observePopularArticles: Loading....")
+                }
+                else -> {
+                    Log.d(TAG_HEADLINE, getString(R.string.message_popular_response_empty))
                 }
             }
         })
@@ -192,6 +193,9 @@ class HeadLinesFragment : Fragment() {
                     binding.topStoriesPb.visibility = View.VISIBLE
                     binding.rvTopStories.visibility = View.GONE
                 }
+                else -> {
+                    Log.d(TAG_HEADLINE, getString(R.string.message_trending_response_empty))
+                }
             }
         })
     }
@@ -200,7 +204,7 @@ class HeadLinesFragment : Fragment() {
      * This function will observe live data for movie critic reviews and update any changes.
      */
     private fun observeMovieReview() {
-        viewModel.getMovieReview(type = type, offset = offset, order = order)
+        viewModel.getMovieReview(type = PARAM_TYPE, offset = PARAM_OFFSET, order = PARAM_ORDER)
         viewModel.movieReview.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is Resource.Success -> {
@@ -220,6 +224,9 @@ class HeadLinesFragment : Fragment() {
                     binding.moviesPb.visibility = View.VISIBLE
                     binding.rvMovieReviews.visibility = View.GONE
                 }
+                else -> {
+                    Log.d(TAG_HEADLINE, getString(R.string.message_movie_response_empty))
+                }
             }
         })
     }
@@ -227,10 +234,15 @@ class HeadLinesFragment : Fragment() {
     /**
      * Method to update common toolbar title.
      */
-    private fun setUpToolbar() {
-        val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
-        val title = toolbar?.findViewById<TextView>(R.id.tb_title)
-        title?.text = getString(R.string.title_newyork_times)
+    private fun setUpToolBar() {
+        val headerText = binding.includeHeader.tbTitle
+        headerText.text = getString(R.string.title_newyork_times)
+        val bookmarkIcon = binding.includeHeader.bookmarks
+        bookmarkIcon.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_headlines_to_saveFragment
+            )
+        }
     }
 
     override fun onDestroyView() {

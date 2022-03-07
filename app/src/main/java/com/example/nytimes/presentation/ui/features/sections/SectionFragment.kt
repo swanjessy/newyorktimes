@@ -5,23 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentSectionsBinding
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Constants
+import com.example.nytimes.utils.Constants.ARGS_ARTICLE
+import com.example.nytimes.utils.Constants.TAG_SECTION
 import com.example.nytimes.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
-private const val TAG = "Section"
 
 @AndroidEntryPoint
 class SectionFragment : Fragment() {
@@ -42,13 +40,12 @@ class SectionFragment : Fragment() {
     ): View? {
         _binding = FragmentSectionsBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolbar()
+        setUpToolBar()
         initArticlesRv()
         initCategoryRv()
         observeCategoryAndUpdateArticles()
@@ -66,7 +63,7 @@ class SectionFragment : Fragment() {
             sectionAdapter.setOnItemClickListener {
                 it?.let {
                     val bundle = Bundle().apply {
-                        putParcelable("article", it)
+                        putParcelable(ARGS_ARTICLE, it)
                     }
                     findNavController().navigate(
                         R.id.action_sections_to_articleDetailsFragment,
@@ -138,19 +135,23 @@ class SectionFragment : Fragment() {
                     }
                     articleList.sortByDescending { it.updated_date }
                     sectionAdapter.differ.submitList(articleList)
-
+                    binding.articleRv.visibility = View.VISIBLE
                 }
                 is Resource.Error -> {
-                    Log.i(TAG, "observeTopics: status = ${response.message}")
+                    Log.d(TAG_SECTION, "observeTopics: status = ${response.message}")
                     Toast.makeText(
                         requireContext(),
                         getString(R.string.error_message_reached_quota_limit),
                         Toast.LENGTH_SHORT
                     ).show()
                     binding.refreshArticles.isRefreshing = false
+                    binding.articleRv.visibility = View.VISIBLE
                 }
                 is Resource.Loading -> {
                     binding.refreshArticles.isRefreshing = false
+                }
+                else -> {
+                    Log.d(Constants.TAG_SECTION, getString(R.string.message_section_stories_empty))
                 }
             }
         })
@@ -159,10 +160,15 @@ class SectionFragment : Fragment() {
     /**
      * Update common toolbar title.
      */
-    private fun setUpToolbar() {
-        val toolbar = activity?.findViewById<Toolbar>(R.id.toolBar)
-        val title = toolbar?.findViewById<TextView>(R.id.tb_title)
-        title?.text = getString(R.string.title_trending_stories)
+    private fun setUpToolBar() {
+        val headerText = binding.includeHeader.tbTitle
+        headerText.text = getString(R.string.title_trending_stories)
+        val bookmarkIcon = binding.includeHeader.bookmarks
+        bookmarkIcon.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_sections_to_saveFragment
+            )
+        }
     }
 
     override fun onDestroyView() {
