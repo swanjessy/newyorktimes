@@ -27,7 +27,7 @@ Junit, Mockito , MockWebserver are used for writing test cases for modules and E
 
 Minimum Android API 21
 
-<h2>5. Credentials to run with user defined API KEY</h2>
+<h2>Credentials to run with user defined API KEY</h2>
 
 You can replace your own api-key in the project file - gradle.properties.<br/>
 Just follow these steps.<br/>
@@ -38,7 +38,7 @@ Step 3 : Enable API - Most Popular API, Movie Reviews API, Top Stories API.<br/>
 Step 4 : Copy the API key and replace in the project directory -> gradle.properties ->(field) API_KEY<br/>
 Step 5 : Rebuild Project and Voila you are good to go!<br/>
 
-<h2>5. References</h2>
+<h2>References</h2>
 
 The NewYork Times Developer portal - https://developer.nytimes.com/<br/>
 
