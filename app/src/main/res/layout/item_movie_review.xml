@@ -30,70 +30,61 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:id="@+id/layout_movie_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="@dimen/dimen_20dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_marginEnd="@dimen/dimen_5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_image">
+        app:layout_constraintTop_toBottomOf="@id/card_image"
+        app:srcCompat="@drawable/ic_movie" />
 
-        <ImageView
-            android:id="@+id/img_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="5dp"
-            app:srcCompat="@drawable/ic_movie" />
-
-        <TextView
-            android:id="@+id/tv_display_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="#333"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            tools:text="@tools:sample/lorem" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_display_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:layout_marginTop="@dimen/dimen_4dp"
+        android:layout_marginEnd="@dimen/dimen_8dp"
+        android:ellipsize="end"
+        android:gravity="start|bottom"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_14sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/img_icon"
+        app:layout_constraintStart_toEndOf="@id/img_icon"
+        app:layout_constraintTop_toBottomOf="@id/card_image"
+        tools:text="@tools:sample/lorem" />
+
+    <ImageView
+        android:id="@+id/img_star"
+        android:layout_width="@dimen/dimen_18dp"
+        android:layout_height="@dimen/dimen_18dp"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_movie_title">
+        app:layout_constraintTop_toBottomOf="@id/img_icon"
+        app:srcCompat="@drawable/ic_round_star_rate_24"
+        app:tint="@color/flat_yellow_2" />
 
-        <ImageView
-            android:id="@+id/img_star"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="5dp"
-            app:srcCompat="@drawable/ic_round_star_rate_24"
-            app:tint="@color/flat_yellow_2" />
-
-        <TextView
-            android:id="@+id/tv_rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/flat_yellow_2"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:text="4.5 (32)" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:gravity="bottom"
+        android:textColor="@color/flat_yellow_2"
+        android:textSize="@dimen/text_size_14sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/img_star"
+        app:layout_constraintTop_toBottomOf="@id/img_icon"
+        tools:text="@string/title_rating_demo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

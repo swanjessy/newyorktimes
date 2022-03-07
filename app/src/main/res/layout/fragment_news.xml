@@ -22,15 +22,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/include_header">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/layout_motion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutDescription="@xml/fragment_news_scene">
+                app:layoutDescription="@xml/fragment_news_scene"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <org.imaginativeworld.whynotimagecarousel.ImageCarousel
                     android:id="@+id/carousel1"
@@ -70,32 +74,25 @@
 
             </androidx.constraintlayout.motion.widget.MotionLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_trending"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/trending"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_motion" />
 
-                <TextView
-                    android:id="@+id/tv_trending"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16dp"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    android:text="@string/trending"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_26sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/carousel1" />
-
-                <View
-                    android:layout_width="@dimen/dimen_10dp"
-                    android:layout_height="@dimen/dimen_10dp"
-                    android:layout_marginTop="@dimen/dimen_23dp"
-                    android:background="@drawable/shape_oval_solid_red"
-                    app:layout_constraintLeft_toRightOf="@id/tv_trending"
-                    app:layout_constraintTop_toBottomOf="@id/carousel1" />
-
-            </LinearLayout>
+            <View
+                android:layout_width="@dimen/dimen_10dp"
+                android:layout_height="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_23dp"
+                android:background="@drawable/shape_oval_solid_red"
+                app:layout_constraintLeft_toRightOf="@id/tv_trending"
+                app:layout_constraintTop_toBottomOf="@id/layout_motion" />
 
             <ProgressBar
                 android:id="@+id/top_stories_pb"
@@ -116,6 +113,7 @@
                 android:layout_gravity="center_vertical"
                 android:clipChildren="false"
                 android:clipToPadding="false"
+                android:visibility="gone"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -123,40 +121,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_trending"
                 tools:listitem="@layout/item_top_stories" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_movie_critics"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_movie_critics"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_16dp"
-                    android:text="@string/movie_critics_review"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_26sp" />
-
-                <View
-                    android:layout_width="@dimen/dimen_10dp"
-                    android:layout_height="@dimen/dimen_10dp"
-                    android:layout_marginTop="@dimen/dimen_5dp"
-                    android:background="@drawable/shape_oval_solid_blue"
-                    app:layout_constraintLeft_toRightOf="@id/tv_movie_critics"
-                    app:layout_constraintTop_toBottomOf="@id/rvTopStories" />
-
-            </LinearLayout>
-
-            <ProgressBar
-                android:id="@+id/movies_pb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dimen_20dp"
-                android:indeterminate="true"
-                android:indeterminateTint="@color/item_menu_tint"
-                android:indeterminateTintMode="src_atop"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:text="@string/movie_critics_review"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_26sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_movie_critics" />
+                app:layout_constraintTop_toBottomOf="@id/rvTopStories" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMovieReviews"
@@ -166,13 +141,14 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_movie_critics"
                 tools:listitem="@layout/item_movie_review" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

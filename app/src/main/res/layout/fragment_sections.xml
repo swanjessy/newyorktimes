@@ -16,47 +16,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?listPreferredItemHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/include_header">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/article_rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/flat_grey_light_1"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/article_rv"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_story_section" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/bottom_layout"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeight"
-                android:backgroundTint="@color/flat_grey_normal_2"
-                app:cardElevation="@dimen/dimen_4dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/category_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_post_category" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_story_section" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:backgroundTint="@color/flat_grey_normal_2"
+        app:cardElevation="@dimen/dimen_4dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_post_category" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

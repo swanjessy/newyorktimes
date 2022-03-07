@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentSaveBinding
+import com.example.nytimes.presentation.ui.BaseFragment
 import com.example.nytimes.presentation.ui.features.sections.SectionAdapter
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Constants.ARGS_ARTICLE
@@ -20,27 +20,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SaveFragment : Fragment() {
+class SaveFragment : BaseFragment<FragmentSaveBinding>() {
 
-    private var _binding: FragmentSaveBinding? = null
-    private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
     @Inject
     lateinit var sectionAdapter: SectionAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSaveBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolBar()
         initArticlesRv()
         viewModel.getSavedNews().observe(viewLifecycleOwner, {
             if (it.isNullOrEmpty()) {
@@ -82,6 +71,14 @@ class SaveFragment : Fragment() {
         ItemTouchHelper(itemTouchHelperCallback).apply {
             attachToRecyclerView(binding.articleRv)
         }
+
+        val toolbarTv = binding.includeHeader.tbTitle
+        val toolbarImg = binding.includeHeader.bookmarks
+        setUpToolBar(
+            toolbarTv, toolbarImg,
+            getString(R.string.title_saved_articles),
+            View.GONE, null
+        )
     }
 
     private fun initArticlesRv() = with(binding) {
@@ -102,15 +99,8 @@ class SaveFragment : Fragment() {
         }
     }
 
-    private fun setUpToolBar() {
-        val headerText = binding.includeHeader.tbTitle
-        headerText.text = getString(R.string.title_saved_articles)
-        val bookmarkIcon = binding.includeHeader.bookmarks
-        bookmarkIcon.visibility = View.GONE
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentSaveBinding.inflate(inflater, container, false)
 }

@@ -29,6 +29,8 @@
     <dimen name="dimen_45dp">45dp</dimen>
     <dimen name="dimen_120dp">120dp</dimen>
     <dimen name="dimen_17dp">17dp</dimen>
+    <dimen name="dimen_18dp">18dp</dimen>
+    <dimen name="dimen_2dp">2dp</dimen>
 
     <item name="carousel_alpha" format="float" type="dimen">0.6</item>
     <item name="carousel_scaling" format="float" type="dimen">.15</item>

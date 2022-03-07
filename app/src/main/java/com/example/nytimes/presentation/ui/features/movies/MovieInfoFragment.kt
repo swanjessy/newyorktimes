@@ -8,26 +8,15 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.nytimes.R
 import com.example.nytimes.databinding.FragmentMovieInfoBinding
+import com.example.nytimes.presentation.ui.BaseFragment
 
-class MovieInfoFragment : Fragment() {
+class MovieInfoFragment : BaseFragment<FragmentMovieInfoBinding>() {
 
-    private var _binding: FragmentMovieInfoBinding? = null
-    private val binding get() = _binding!!
     private val args: MovieInfoFragmentArgs by navArgs()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMovieInfoBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,8 +24,6 @@ class MovieInfoFragment : Fragment() {
         val bundle = args.movie
         val reviewURL = bundle.link.url
         val imageUrl = bundle.multimedia.src
-
-        setUpToolBar()
 
         binding.titleMovie.text = bundle.headline
         binding.tvDisplayTitle.text = bundle.display_title
@@ -57,21 +44,19 @@ class MovieInfoFragment : Fragment() {
                 startActivity(browserIntent)
             }
         }
+
+        val toolbarTv = binding.includeHeader.tbTitle
+        val toolbarImg = binding.includeHeader.bookmarks
+        val action = R.id.action_movieInfoFragment_to_saveFragment
+        setUpToolBar(
+            toolbarTv, toolbarImg,
+            getString(R.string.title_movie_review),
+            View.VISIBLE, action
+        )
     }
 
-    private fun setUpToolBar() {
-        val headerText = binding.includeHeader.tbTitle
-        headerText.text = getString(R.string.title_movie_review)
-        val bookmarkIcon = binding.includeHeader.bookmarks
-        bookmarkIcon.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_movieInfoFragment_to_saveFragment
-            )
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentMovieInfoBinding.inflate(inflater, container, false)
 }

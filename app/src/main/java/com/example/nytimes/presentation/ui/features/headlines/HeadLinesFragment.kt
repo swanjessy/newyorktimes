@@ -5,14 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentNewsBinding
+import com.example.nytimes.presentation.ui.BaseFragment
 import com.example.nytimes.presentation.ui.features.movies.MoviesReviewAdapter
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Constants.ARGS_ARTICLE
@@ -28,10 +27,8 @@ import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HeadLinesFragment : Fragment() {
+class HeadLinesFragment : BaseFragment<FragmentNewsBinding>() {
 
-    private var _binding: FragmentNewsBinding? = null
-    private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
     @Inject
@@ -40,18 +37,9 @@ class HeadLinesFragment : Fragment() {
     @Inject
     lateinit var moviesReviewAdapter: MoviesReviewAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolBar()
         initArticlesRv()
         initMoviesRv()
         observePopularArticles()
@@ -61,6 +49,15 @@ class HeadLinesFragment : Fragment() {
         binding.carousel1.apply {
             registerLifecycle(lifecycle)
         }
+
+        val toolbarTv = binding.includeHeader.tbTitle
+        val toolbarImg = binding.includeHeader.bookmarks
+        val action = R.id.action_headlines_to_saveFragment
+        setUpToolBar(
+            toolbarTv, toolbarImg,
+            getString(R.string.title_newyork_times),
+            View.VISIBLE, action
+        )
     }
 
     /**
@@ -212,16 +209,16 @@ class HeadLinesFragment : Fragment() {
                     results?.let {
                         moviesReviewAdapter.differ.submitList(results.toList())
                     }
-                    binding.moviesPb.visibility = View.GONE
+                    binding.tvMovieCritics.visibility = View.VISIBLE
                     binding.rvMovieReviews.visibility = View.VISIBLE
                 }
                 is Resource.Error -> {
-                    binding.moviesPb.visibility = View.GONE
-                    binding.rvMovieReviews.visibility = View.VISIBLE
+                    binding.tvMovieCritics.visibility = View.GONE
+                    binding.rvMovieReviews.visibility = View.GONE
 
                 }
                 is Resource.Loading -> {
-                    binding.moviesPb.visibility = View.VISIBLE
+                    binding.tvMovieCritics.visibility = View.GONE
                     binding.rvMovieReviews.visibility = View.GONE
                 }
                 else -> {
@@ -231,23 +228,9 @@ class HeadLinesFragment : Fragment() {
         })
     }
 
-    /**
-     * Method to update common toolbar title.
-     */
-    private fun setUpToolBar() {
-        val headerText = binding.includeHeader.tbTitle
-        headerText.text = getString(R.string.title_newyork_times)
-        val bookmarkIcon = binding.includeHeader.bookmarks
-        bookmarkIcon.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_headlines_to_saveFragment
-            )
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentNewsBinding.inflate(inflater, container, false)
 }
 

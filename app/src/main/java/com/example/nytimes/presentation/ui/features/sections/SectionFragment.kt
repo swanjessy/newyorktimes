@@ -5,14 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytimes.R
 import com.example.nytimes.data.model.topstories.Article
 import com.example.nytimes.databinding.FragmentSectionsBinding
+import com.example.nytimes.presentation.ui.BaseFragment
 import com.example.nytimes.presentation.ui.viewmodel.NewsViewModel
 import com.example.nytimes.utils.Constants
 import com.example.nytimes.utils.Constants.ARGS_ARTICLE
@@ -22,10 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SectionFragment : Fragment() {
+class SectionFragment : BaseFragment<FragmentSectionsBinding>() {
 
-    private var _binding: FragmentSectionsBinding? = null
-    private val binding get() = _binding!!
     private val viewModel: NewsViewModel by viewModels()
 
     @Inject
@@ -34,22 +31,22 @@ class SectionFragment : Fragment() {
     @Inject
     lateinit var sectionAdapter: SectionAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSectionsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolBar()
         initArticlesRv()
         initCategoryRv()
         observeCategoryAndUpdateArticles()
         swipeToRefreshArticles()
+
+        val toolbarTv = binding.includeHeader.tbTitle
+        val toolbarImg = binding.includeHeader.bookmarks
+        val action = R.id.action_sections_to_saveFragment
+        setUpToolBar(
+            toolbarTv, toolbarImg,
+            getString(R.string.title_trending_stories),
+            View.VISIBLE, action
+        )
     }
 
     /**
@@ -139,11 +136,7 @@ class SectionFragment : Fragment() {
                 }
                 is Resource.Error -> {
                     Log.d(TAG_SECTION, "observeTopics: status = ${response.message}")
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.error_message_reached_quota_limit),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    toast(getString(R.string.error_message_reached_quota_limit))
                     binding.refreshArticles.isRefreshing = false
                     binding.articleRv.visibility = View.VISIBLE
                 }
@@ -151,28 +144,14 @@ class SectionFragment : Fragment() {
                     binding.refreshArticles.isRefreshing = false
                 }
                 else -> {
-                    Log.d(Constants.TAG_SECTION, getString(R.string.message_section_stories_empty))
+                    Log.d(TAG_SECTION, getString(R.string.message_section_stories_empty))
                 }
             }
         })
     }
 
-    /**
-     * Update common toolbar title.
-     */
-    private fun setUpToolBar() {
-        val headerText = binding.includeHeader.tbTitle
-        headerText.text = getString(R.string.title_trending_stories)
-        val bookmarkIcon = binding.includeHeader.bookmarks
-        bookmarkIcon.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_sections_to_saveFragment
-            )
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentSectionsBinding.inflate(inflater, container, false)
 }
